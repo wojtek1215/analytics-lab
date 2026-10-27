@@ -19,13 +19,19 @@ from asr_benchmark.evaluation.normalize import (
     normalize_pl_basic_v1,
     normalize_pl_numbers_v1,
 )
+from asr_benchmark.evaluation.normalize_v2 import (
+    WER_NORMALIZATION_VERSION,
+    normalize_pl_wer_v1,
+)
 
 _NORMALIZERS = {
     NORMALIZATION_VERSION: normalize_pl_basic_v1,
     NUMBERS_NORMALIZATION_VERSION: normalize_pl_numbers_v1,
+    WER_NORMALIZATION_VERSION: normalize_pl_wer_v1,
 }
 
 EVALUATION_VERSION = "1.0.0"
+EVALUATION_VERSION_V2 = "2.0.0"
 
 # Pre-normalized text: tokenize only — do not re-apply case/punct transforms.
 # Public alias kept stable for alignment diagnostics (must stay in sync).
@@ -146,11 +152,13 @@ def compute_metrics(
     clip_id: str = "clip",
     model_id: str = "model",
     normalization_version: str = NORMALIZATION_VERSION,
+    evaluation_version: str = EVALUATION_VERSION,
 ) -> ClipMetrics:
     """Normalize both sides and compute WER/CER.
 
-    Default ``normalization_version`` is ``pl_basic_v1`` (primary protocol).
-    ``pl_numbers_v1`` is available for sensitivity analysis only.
+    Default ``normalization_version`` is ``pl_basic_v1`` (legacy primary).
+    ``pl_numbers_v1`` is sensitivity-only. ``pl_wer_normalized_v1`` is the
+    v2 primary profile (pass ``evaluation_version=EVALUATION_VERSION_V2``).
     """
     if not isinstance(reference, str) or not isinstance(hypothesis, str):
         raise TypeError("reference and hypothesis must be str")
@@ -189,6 +197,7 @@ def compute_metrics(
         char_deletions=char["char_deletions"],
         char_insertions=char["char_insertions"],
         normalization_version=normalization_version,
+        evaluation_version=evaluation_version,
     )
 
 

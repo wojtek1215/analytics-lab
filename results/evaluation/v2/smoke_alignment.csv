@@ -1,0 +1,54 @@
+model_id,normalization_version,op,ref_span,hyp_span,ref_start,ref_end,hyp_start,hyp_end,edit_mass,primary_category,secondary_tags,semantic_impact,review_status,rationale
+scribe_v2,pl_basic_v1,insert,,dwa tysiące dwudziestym,1,1,1,4,3,number_format,,equivalent_formatting,auto_inferred,Insertion of number-format tokens only.
+scribe_v2,pl_basic_v1,substitute,2026,szóstym,1,2,4,5,1,number_format,,equivalent_formatting,auto_inferred,Numeric format difference.
+scribe_v2,pl_basic_v1,insert,,dziewięćdziesiąt siedem przecinek,26,26,29,32,3,number_format,,equivalent_formatting,auto_inferred,Insertion of number-format tokens only.
+scribe_v2,pl_basic_v1,substitute,"97,5",pięć,26,27,32,33,1,number_format,,equivalent_formatting,auto_inferred,Numeric format difference.
+scribe_v2,pl_basic_v1,substitute,ale,a,28,29,34,35,1,lexical_substitution,,content_difference,auto_inferred,Single-token lexical substitution.
+scribe_v2,pl_basic_v1,insert,,sto,34,34,40,41,1,number_format,,equivalent_formatting,auto_inferred,Insertion of number-format tokens only.
+scribe_v2,pl_basic_v1,substitute,120,dwadzieścia,34,35,41,42,1,number_format,,equivalent_formatting,auto_inferred,Numeric format difference.
+scribe_v2,pl_basic_v1,substitute,morze,może,41,42,48,49,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_basic_v1,substitute,może,morze,43,44,50,51,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_basic_v1,substitute,git,githab,49,50,56,57,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+scribe_v2,pl_basic_v1,delete,hap,,50,51,57,57,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+scribe_v2,pl_numbers_v1,substitute,ale,a,28,29,28,29,1,lexical_substitution,,content_difference,auto_inferred,Single-token lexical substitution.
+scribe_v2,pl_numbers_v1,substitute,morze,może,41,42,41,42,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_numbers_v1,substitute,może,morze,43,44,43,44,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_numbers_v1,substitute,git,githab,49,50,49,50,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+scribe_v2,pl_numbers_v1,delete,hap,,50,51,50,50,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+scribe_v2,pl_wer_normalized_v1,substitute,ale,a,28,29,28,29,1,lexical_substitution,,content_difference,auto_inferred,Single-token lexical substitution.
+scribe_v2,pl_wer_normalized_v1,substitute,morze,może,41,42,41,42,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_wer_normalized_v1,substitute,może,morze,43,44,43,44,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+scribe_v2,pl_wer_normalized_v1,substitute,git,githab,49,50,49,50,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+scribe_v2,pl_wer_normalized_v1,delete,hap,,50,51,50,50,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+whisper-large-v3-turbo,pl_basic_v1,insert,,chat,11,11,11,12,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand tokenization insertion.
+whisper-large-v3-turbo,pl_basic_v1,substitute,chatgpt,gpt,11,12,12,13,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand surface tokenization only.
+whisper-large-v3-turbo,pl_basic_v1,insert,,eleven,14,14,15,16,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand tokenization insertion.
+whisper-large-v3-turbo,pl_basic_v1,substitute,elevenlabs,labs,14,15,16,17,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand surface tokenization only.
+whisper-large-v3-turbo,pl_basic_v1,substitute,procent ale koszt,a tylko z,27,30,29,32,3,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_basic_v1,substitute,złotych,zł,35,36,37,38,1,unit_format,,equivalent_formatting,auto_inferred,Unit abbreviation vs full form.
+whisper-large-v3-turbo,pl_basic_v1,substitute,algorytm pomylił,algoryt pomyli,38,40,40,42,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_basic_v1,substitute,morze,może,41,42,43,44,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+whisper-large-v3-turbo,pl_basic_v1,substitute,a nazwę,ale w,44,46,46,48,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_basic_v1,substitute,git,github,49,50,51,52,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+whisper-large-v3-turbo,pl_basic_v1,delete,hap,,50,51,52,52,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+whisper-large-v3-turbo,pl_basic_v1,insert,,koniec,58,58,59,60,1,potential_hallucination,insertion,content_difference,auto_inferred,Trailing insertion matching closed hallucination token list; not acoustically verified in this pipeline.
+whisper-large-v3-turbo,pl_numbers_v1,insert,,chat,11,11,11,12,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand tokenization insertion.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,chatgpt,gpt,11,12,12,13,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand surface tokenization only.
+whisper-large-v3-turbo,pl_numbers_v1,insert,,eleven,14,14,15,16,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand tokenization insertion.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,elevenlabs,labs,14,15,16,17,1,proper_name_format,,equivalent_formatting,auto_inferred,Brand surface tokenization only.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,procent ale koszt,a tylko z,27,30,29,32,3,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,złotych,zł,35,36,37,38,1,unit_format,,equivalent_formatting,auto_inferred,Unit abbreviation vs full form.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,algorytm pomylił,algoryt pomyli,38,40,40,42,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,morze,może,41,42,43,44,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+whisper-large-v3-turbo,pl_numbers_v1,substitute,a nazwę,ale w,44,46,46,48,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_numbers_v1,substitute,git,github,49,50,51,52,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+whisper-large-v3-turbo,pl_numbers_v1,delete,hap,,50,51,52,52,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+whisper-large-v3-turbo,pl_numbers_v1,insert,,koniec,58,58,59,60,1,potential_hallucination,insertion,content_difference,auto_inferred,Trailing insertion matching closed hallucination token list; not acoustically verified in this pipeline.
+whisper-large-v3-turbo,pl_wer_normalized_v1,insert,,a,28,28,28,29,1,insertion,,undetermined,auto_inferred,Generic insertion.
+whisper-large-v3-turbo,pl_wer_normalized_v1,substitute,ale koszt,tylko z,28,30,29,31,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_wer_normalized_v1,substitute,algorytm pomylił,algoryt pomyli,38,40,39,41,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_wer_normalized_v1,substitute,morze,może,41,42,42,43,1,homophone_ambiguity,,content_difference,auto_inferred,"Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER."
+whisper-large-v3-turbo,pl_wer_normalized_v1,substitute,a nazwę,ale w,44,46,45,47,2,unclear,,undetermined,auto_inferred,Mixed or multi-token substitution; automatic label uncertain.
+whisper-large-v3-turbo,pl_wer_normalized_v1,substitute,git,github,49,50,50,51,1,proper_name_recognition,,content_difference,auto_inferred,Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.
+whisper-large-v3-turbo,pl_wer_normalized_v1,delete,hap,,50,51,51,51,1,proper_name_recognition,,content_difference,auto_inferred,Deletion of brand-misspelling token (e.g. hap) near a name span.
+whisper-large-v3-turbo,pl_wer_normalized_v1,insert,,koniec,58,58,58,59,1,potential_hallucination,insertion,content_difference,auto_inferred,Trailing insertion matching closed hallucination token list; not acoustically verified in this pipeline.

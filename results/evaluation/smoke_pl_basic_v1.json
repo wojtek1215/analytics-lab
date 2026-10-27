@@ -1,0 +1,101 @@
+{
+  "clip_id": "test_pl",
+  "normalization_version": "pl_basic_v1",
+  "evaluation_version": "1.0.0",
+  "models": [
+    {
+      "clip_id": "test_pl",
+      "model_id": "scribe_v2",
+      "reference": "W 2026 roku sztuczna inteligencja zmienia sposób, w jaki pracujemy. Czy ChatGPT, Whisper i ElevenLabs zastąpią kiedyś analityków danych? Według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent, ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych. Co ciekawe, algorytm pomylił słowa „morze” i „może”, a nazwę GitHub zapisał jako „Git Hap”. Czy naprawdę możemy ufać automatyzacji, automatycznej transkrypcji?",
+      "hypothesis": "W dwa tysiące dwudziestym szóstym roku sztuczna inteligencja zmienia sposób, w jaki pracujemy. Czy ChatGPT, Whisper i ElevenLabs zastąpią kiedyś analityków danych? Według mojego eksperymentu dokładność rozpoznawania mowy wynosiła dziewięćdziesiąt siedem przecinek pięć procent, a koszt przetworzenia tysiąca nagrań przekroczył sto dwadzieścia złotych. Co ciekawe, algorytm pomylił słowa „może” i „morze”, a nazwę GitHub zapisał jako GitHab. Czy naprawdę możemy ufać automatyzacji, automatycznej transkrypcji?",
+      "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+      "normalized_hypothesis": "w dwa tysiące dwudziestym szóstym roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła dziewięćdziesiąt siedem przecinek pięć procent a koszt przetworzenia tysiąca nagrań przekroczył sto dwadzieścia złotych co ciekawe algorytm pomylił słowa może i morze a nazwę github zapisał jako githab czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+      "wer": 0.25862068965517243,
+      "cer": 0.21749408983451538,
+      "substitutions": 7,
+      "deletions": 1,
+      "insertions": 7,
+      "hits": 50,
+      "n_words_ref": 58,
+      "n_chars_ref": 423,
+      "char_substitutions": 14,
+      "char_deletions": 4,
+      "char_insertions": 74,
+      "normalization_version": "pl_basic_v1",
+      "evaluation_version": "1.0.0",
+      "status": "ok"
+    },
+    {
+      "clip_id": "test_pl",
+      "model_id": "whisper-large-v3-turbo",
+      "reference": "W 2026 roku sztuczna inteligencja zmienia sposób, w jaki pracujemy. Czy ChatGPT, Whisper i ElevenLabs zastąpią kiedyś analityków danych? Według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent, ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych. Co ciekawe, algorytm pomylił słowa „morze” i „może”, a nazwę GitHub zapisał jako „Git Hap”. Czy naprawdę możemy ufać automatyzacji, automatycznej transkrypcji?",
+      "hypothesis": "W 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy. Czy chat GPT, Whisper i Eleven Labs zastąpią kiedyś analityków danych? Według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5% a tylko z przetworzenia tysiąca nagrań przekroczył 120 zł. Co ciekawe, algoryt pomyli słowa może i może, ale w github zapisał jako github. Czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji? KONIEC!",
+      "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+      "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chat gpt whisper i eleven labs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 a tylko z przetworzenia tysiąca nagrań przekroczył 120 zł co ciekawe algoryt pomyli słowa może i może ale w github zapisał jako github czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji koniec",
+      "wer": 0.27586206896551724,
+      "cer": 0.08983451536643026,
+      "substitutions": 12,
+      "deletions": 1,
+      "insertions": 3,
+      "hits": 45,
+      "n_words_ref": 58,
+      "n_chars_ref": 423,
+      "char_substitutions": 10,
+      "char_deletions": 19,
+      "char_insertions": 9,
+      "normalization_version": "pl_basic_v1",
+      "evaluation_version": "1.0.0",
+      "status": "ok"
+    }
+  ],
+  "corpus_by_model": {
+    "scribe_v2": {
+      "n_clips": 1,
+      "wer": 0.25862068965517243,
+      "cer": 0.21749408983451538,
+      "substitutions": 7,
+      "deletions": 1,
+      "insertions": 7,
+      "n_words_ref": 58,
+      "n_chars_ref": 423,
+      "char_substitutions": 14,
+      "char_deletions": 4,
+      "char_insertions": 74,
+      "normalization_version": "pl_basic_v1",
+      "evaluation_version": "1.0.0"
+    },
+    "whisper-large-v3-turbo": {
+      "n_clips": 1,
+      "wer": 0.27586206896551724,
+      "cer": 0.08983451536643026,
+      "substitutions": 12,
+      "deletions": 1,
+      "insertions": 3,
+      "n_words_ref": 58,
+      "n_chars_ref": 423,
+      "char_substitutions": 10,
+      "char_deletions": 19,
+      "char_insertions": 9,
+      "normalization_version": "pl_basic_v1",
+      "evaluation_version": "1.0.0"
+    }
+  },
+  "historical_smoke_notes": {
+    "scribe_v2": {
+      "wer": 0.103,
+      "cer": 0.024
+    },
+    "whisper-large-v3-turbo": {
+      "wer": 0.207,
+      "cer": 0.064
+    }
+  },
+  "discrepancy_vs_historical": "Recomputed pl_basic_v1 scores are higher than the plan notes (Scribe ~10.3%/2.4%, Whisper ~20.7%/6.4%). Likely causes: (1) no scoring code existed in-repo for those notes; (2) pl_basic_v1 counts digit↔word expansions as errors (Scribe spells 2026, 97.5, 120 → large S/I and CER insertions); (3) Whisper still pays for ChatGPT/ElevenLabs tokenization, homophone/content errors, and the trailing 'KONIEC' insertion. Historical figures are retained only as notes — not overwritten.",
+  "notes": "Historical WER/CER were reported before this evaluator existed; differences may come from a different normalizer or reference. Do not overwrite results/smoke/.",
+  "reference_sha256": "d8baa290a674226d0bd8108ece49dc8473669d62aa017194da5ce6fbcd412346",
+  "paths": {
+    "reference": "data/raw/test_pl_reference.txt",
+    "scribe": "results/smoke/scribe.txt",
+    "whisper": "results/smoke/whisper.txt"
+  }
+}

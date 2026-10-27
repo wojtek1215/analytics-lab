@@ -6,6 +6,8 @@ from dataclasses import asdict, dataclass
 
 from jiwer import process_words
 
+from collections.abc import Callable
+
 from asr_benchmark.evaluation.metrics import WORD_TRANSFORM
 from asr_benchmark.evaluation.normalize import (
     NORMALIZATION_VERSION,
@@ -85,17 +87,39 @@ def align_words(
     hypothesis: str,
     *,
     already_normalized: bool = False,
+    normalizer: Callable[[str], str] | None = None,
+    normalization_version: str = NORMALIZATION_VERSION,
 ) -> AlignmentResult:
-    """Align reference vs hypothesis with the same transforms as primary WER."""
+    """Align reference vs hypothesis with the same transforms as WER scoring.
+
+    Default normalizer is frozen ``pl_basic_v1``. Pass ``normalizer`` or a
+    registered ``normalization_version`` for other profiles.
+    """
     if not isinstance(reference, str) or not isinstance(hypothesis, str):
         raise TypeError("reference and hypothesis must be str")
 
     if already_normalized:
         norm_ref = reference
         norm_hyp = hypothesis
+        version = normalization_version
     else:
-        norm_ref = normalize_pl_basic_v1(reference)
-        norm_hyp = normalize_pl_basic_v1(hypothesis)
+        if normalizer is None:
+            if normalization_version == NORMALIZATION_VERSION:
+                normalizer = normalize_pl_basic_v1
+            else:
+                from asr_benchmark.evaluation.metrics import _NORMALIZERS
+
+                try:
+                    normalizer = _NORMALIZERS[normalization_version]
+                except KeyError as exc:
+                    known = ", ".join(sorted(_NORMALIZERS))
+                    raise ValueError(
+                        f"unknown normalization_version={normalization_version!r}; "
+                        f"known: {known}"
+                    ) from exc
+        version = normalization_version
+        norm_ref = normalizer(reference)
+        norm_hyp = normalizer(hypothesis)
 
     if not norm_ref.strip():
         raise ValueError(
@@ -148,6 +172,7 @@ def align_words(
         n_words_ref=n_words,
         wer=float(out.wer),
         ops=tuple(ops),
+        normalization_version=version,
     )
 
     mass_sum = sum(op.edit_mass for op in result.ops)

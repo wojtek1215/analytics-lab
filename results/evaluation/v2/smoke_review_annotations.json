@@ -1,0 +1,163 @@
+
+{
+  "clip_id": "test_pl",
+  "note": "Owner-reviewed annotations for smoke clip test_pl (owner-recorded audio). Semantic impact is assessed in sentence context. Does not alter primary WER.",
+  "items": [
+    {
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "ale",
+      "hyp_span": "a",
+      "op": "substitute",
+      "auto_primary_category": "lexical_substitution",
+      "human_label": "lexical_substitution",
+      "human_semantic_impact": "minor",
+      "reviewer": null,
+      "notes": "Both conjunctions preserve the factual content. However, 'ale' expresses a stronger contrast between high recognition accuracy and processing cost than 'a'. This is a minor discourse-level change, not a factual content error."
+    },
+    {
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "morze",
+      "hyp_span": "może",
+      "op": "substitute",
+      "auto_primary_category": "homophone_ambiguity",
+      "human_label": "homophone_ambiguity",
+      "human_semantic_impact": "none",
+      "reviewer": null,
+      "notes": "Part of a paired homophone-order reversal: 'morze i może' becomes 'może i morze'. Both words have identical pronunciation in Polish. The sentence still states that the algorithm confused the same two words. Their ordering does not change the intended meaning. Standard WER counts the substitution, but no semantic penalty is justified."
+    },
+    {
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "może",
+      "hyp_span": "morze",
+      "op": "substitute",
+      "auto_primary_category": "homophone_ambiguity",
+      "human_label": "homophone_ambiguity",
+      "human_semantic_impact": "none",
+      "reviewer": null,
+      "notes": "Second substitution in the same homophone-order reversal. Together with the preceding item, it preserves the original sentence meaning. The spoken audio cannot distinguish the intended spelling order. These two WER substitutions should be treated as one ambiguity event with no semantic impact."
+    },
+    {
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "git",
+      "hyp_span": "githab",
+      "op": "substitute",
+      "auto_primary_category": "proper_name_recognition",
+      "human_label": "quoted_spelling_mismatch",
+      "human_semantic_impact": "minor",
+      "reviewer": null,
+      "notes": "Part of a single quoted-form mismatch: 'Git Hap' becomes 'GitHab'. The hypothesis merges two reference tokens into one and changes the exact spelling of the quoted erroneous form. It still communicates that GitHub was transcribed incorrectly. The main factual claim is preserved, although the exact quoted output differs. The written spacing and spelling are not fully recoverable from speech alone."
+    },
+    {
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "hap",
+      "hyp_span": "",
+      "op": "delete",
+      "auto_primary_category": "proper_name_recognition",
+      "human_label": "quoted_spelling_mismatch",
+      "human_semantic_impact": "none",
+      "reviewer": null,
+      "notes": "Alignment artifact belonging to the preceding quoted-form mismatch. The phonetic content corresponding to 'hap' is approximately represented inside 'githab', so this is not an independent semantic omission. Semantic impact is attributed to the preceding substitution to avoid double-counting."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "",
+      "hyp_span": "a",
+      "op": "insert",
+      "auto_primary_category": "insertion",
+      "human_label": "insertion",
+      "human_semantic_impact": "none",
+      "reviewer": null,
+      "notes": "An additional conjunction appears in the hypothesis. No new factual information is introduced by the token itself. Its exact discourse effect cannot be determined without the surrounding hypothesis and audio context."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "ale koszt",
+      "hyp_span": "tylko z",
+      "op": "substitute",
+      "auto_primary_category": "unclear",
+      "human_label": "lexical_substitution",
+      "human_semantic_impact": "major",
+      "reviewer": null,
+      "notes": "A two-token substitution that removes the explicit reference to processing cost and disrupts the contrast between recognition accuracy and cost. Unlike a harmless conjunction substitution, this error damages the central economic claim and the grammatical coherence of the sentence. The affected content is important for interpreting the experiment results."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "algorytm pomylił",
+      "hyp_span": "algoryt pomyli",
+      "op": "substitute",
+      "auto_primary_category": "unclear",
+      "human_label": "lexical_substitution",
+      "human_semantic_impact": "minor",
+      "reviewer": null,
+      "notes": "Two malformed word forms appear in the hypothesis. 'Algoryt' is a truncated form of 'algorytm', while 'pomyli' differs grammatically from the past-tense form 'pomylił'. The intended statement remains largely recoverable from context, but grammatical correctness and transcription fidelity are reduced. This is primarily a word-form recognition problem."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "morze",
+      "hyp_span": "może",
+      "op": "substitute",
+      "auto_primary_category": "homophone_ambiguity",
+      "human_label": "homophone_ambiguity",
+      "human_semantic_impact": "moderate",
+      "reviewer": null,
+      "notes": "Unlike the Scribe output, the provided Whisper alignment contains only one homophone substitution. Assuming the following reference word 'może' remains unchanged, the phrase becomes 'może i może', losing the distinction between the two words being discussed. This damages the example's meaning. The words are acoustically identical, so the problem is orthographic and contextual rather than purely acoustic. Confirm against the complete Whisper hypothesis."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "a nazwę",
+      "hyp_span": "ale w",
+      "op": "substitute",
+      "auto_primary_category": "unclear",
+      "human_label": "lexical_substitution",
+      "human_semantic_impact": "moderate",
+      "reviewer": null,
+      "notes": "The phrase 'a nazwę' introduces the name whose incorrect transcription is being described. Replacing it with 'ale w' removes that explicit reference and disrupts the grammatical structure. The surrounding context may still allow the reader to infer the intended topic, but the local meaning and clarity are substantially degraded."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "git",
+      "hyp_span": "github",
+      "op": "substitute",
+      "auto_primary_category": "proper_name_recognition",
+      "human_label": "quoted_spelling_mismatch",
+      "human_semantic_impact": "moderate",
+      "reviewer": null,
+      "notes": "Part of a single quoted-form mismatch: the reference quotation 'Git Hap' is rendered as 'GitHub'. Although 'GitHub' is the correct spelling of the product name, the speaker is specifically describing an incorrect transcription of that name. Canonicalizing the quoted mistake to the correct name removes the distinction that the sentence is intended to illustrate. This is not necessarily a failure to recognize the entity, but a failure to preserve the quoted form."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "hap",
+      "hyp_span": "",
+      "op": "delete",
+      "auto_primary_category": "proper_name_recognition",
+      "human_label": "quoted_spelling_mismatch",
+      "human_semantic_impact": "none",
+      "reviewer": null,
+      "notes": "Second alignment operation in the same quoted-form mismatch. The two reference tokens 'git hap' are aligned to the single hypothesis token 'github'. This deletion should not be interpreted as an independent omission of the entity or counted as another semantic error. The semantic impact is assigned to the preceding substitution."
+    },
+    {
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_wer_normalized_v1",
+      "ref_span": "",
+      "hyp_span": "koniec",
+      "op": "insert",
+      "auto_primary_category": "potential_hallucination",
+      "human_label": "insertion",
+      "human_semantic_impact": "minor",
+      "reviewer": null,
+      "notes": "The word 'koniec' is absent from the supplied reference and appears as an additional closing marker in the hypothesis. It does not materially alter the preceding factual claims, but adds unsupported discourse content. If audio review confirms that the word was not spoken, classify it as an insertion or hallucinated output. Its hallucination status remains unverified without audio."
+    }
+  ]
+}
