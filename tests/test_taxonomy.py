@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
+import pytest
+
 from asr_benchmark.evaluation.alignment import align_words
 from asr_benchmark.evaluation.taxonomy import (
     TAG_AMBIGUOUS,
@@ -12,6 +16,8 @@ from asr_benchmark.evaluation.taxonomy import (
     summarize_tags,
     tag_alignment,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_number_format_year_span() -> None:
@@ -70,12 +76,15 @@ def test_summary_mass_percentages() -> None:
 
 
 def test_smoke_taxonomy_mass_equals_sdi() -> None:
-    from pathlib import Path
+    ref_path = ROOT / "data/raw/test_pl_reference.txt"
+    scribe_path = ROOT / "results/smoke/scribe.txt"
+    whisper_path = ROOT / "results/smoke/whisper.txt"
+    if not ref_path.is_file() or not scribe_path.is_file() or not whisper_path.is_file():
+        pytest.skip("smoke artifacts not present")
 
-    root = Path(__file__).resolve().parents[1]
-    ref = (root / "data/raw/test_pl_reference.txt").read_text(encoding="utf-8").strip()
-    for name in ("scribe.txt", "whisper.txt"):
-        hyp = (root / "results/smoke" / name).read_text(encoding="utf-8").strip()
+    ref = ref_path.read_text(encoding="utf-8").strip()
+    for path in (scribe_path, whisper_path):
+        hyp = path.read_text(encoding="utf-8").strip()
         al = align_words(ref, hyp)
         tagged = tag_alignment(al)
         assert sum(t.edit_mass for t in tagged) == al.total_edit_mass
