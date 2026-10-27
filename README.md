@@ -10,10 +10,28 @@ scoring.
 cp .env.example .env
 # Edit .env locally. Never commit real secrets or private recordings.
 
-uv sync
+# Core evaluation + tests
+uv sync --group dev
+
+# Optional: local smoke transcription (Whisper MLX + ElevenLabs)
+uv sync --group dev --group smoke
 ```
 
 Requires Python 3.14+ (see `.python-version`).
+
+## What runs where
+
+| Piece | Where | Notes |
+|---|---|---|
+| `data/raw/` audio + reference | **Local only** (gitignored) | Your recording; not published by default |
+| `.env` / API keys | **Local only** | Use `.env.example` as a template |
+| `results/` hypotheses & reports | **Local** unless you deliberately publish them | Produced by smoke/eval scripts |
+| `src/asr_benchmark/` + offline scripts | **GitHub** | Scoring code; no API calls |
+| `scripts/smoke_test.py` | **GitHub (code only)** | Needs local audio + key to run |
+| `.github/workflows/ci.yml` | **GitHub Actions** | Installs core+dev deps and runs `pytest` |
+
+GitHub CI does **not** run Whisper/Scribe, does **not** read your `.env`, and does
+**not** use `data/raw/`. It only checks that the evaluation unit tests pass.
 
 ## Offline evaluation
 
@@ -29,5 +47,11 @@ uv run python scripts/evaluate_smoke.py \
   --output results/evaluation
 ```
 
-Raw audio and reference transcripts under `data/raw/` stay local by default.
-Provide your own licensed fixtures before running the smoke evaluator.
+## Local smoke transcription (optional)
+
+```bash
+# Requires data/raw/test_pl.m4a and ELEVENLABS_API_KEY in .env
+uv run --group smoke python scripts/smoke_test.py
+```
+
+Outputs: `results/smoke/whisper.txt` and `results/smoke/scribe.txt`.
