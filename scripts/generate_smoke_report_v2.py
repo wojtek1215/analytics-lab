@@ -474,29 +474,46 @@ def main(argv: list[str] | None = None) -> int:
             "review_status": "auto_inferred",
         },
     )
-    write_json(
-        review_path,
-        {
-            "clip_id": args.clip_id,
-            "note": "Human-review template; human_label is null until audited.",
-            "items": [
-                {
-                    "model_id": row["model_id"],
-                    "normalization_version": row["normalization_version"],
-                    "ref_span": row["ref_span"],
-                    "hyp_span": row["hyp_span"],
-                    "op": row["op"],
-                    "auto_primary_category": row["primary_category"],
-                    "human_label": None,
-                    "human_semantic_impact": None,
-                    "reviewer": None,
-                    "notes": None,
-                }
-                for row in csv_rows
-                if row["normalization_version"] == WER_NORMALIZATION_VERSION
-            ],
-        },
-    )
+    # Preserve an existing owner/human review; do not wipe filled labels on rescore.
+    preserve_review = False
+    if review_path.is_file():
+        try:
+            existing_review = json.loads(review_path.read_text(encoding="utf-8"))
+            items = existing_review.get("items") or []
+            preserve_review = any(
+                isinstance(it, dict) and it.get("human_label") is not None for it in items
+            )
+        except (json.JSONDecodeError, OSError):
+            preserve_review = False
+    if preserve_review:
+        print(f"Preserved existing review annotations: {review_path.relative_to(ROOT)}")
+    else:
+        write_json(
+            review_path,
+            {
+                "clip_id": args.clip_id,
+                "note": (
+                    "Owner-reviewed annotations template. Fill human_* fields; "
+                    "does not alter primary WER."
+                ),
+                "items": [
+                    {
+                        "model_id": row["model_id"],
+                        "normalization_version": row["normalization_version"],
+                        "ref_span": row["ref_span"],
+                        "hyp_span": row["hyp_span"],
+                        "op": row["op"],
+                        "auto_primary_category": row["primary_category"],
+                        "human_label": None,
+                        "human_semantic_impact": None,
+                        "reviewer": None,
+                        "notes": None,
+                    }
+                    for row in csv_rows
+                    if row["normalization_version"] == WER_NORMALIZATION_VERSION
+                ],
+            },
+        )
 
     # Render markdown from the written metrics payload (reload for consistency)
     written = json.loads(metrics_path.read_text(encoding="utf-8"))

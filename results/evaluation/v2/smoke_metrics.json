@@ -8,7 +8,7 @@
   "taxonomy_version": "taxonomy_v2",
   "api_used": false,
   "asr_inference_performed": false,
-  "created_at": "2026-10-27T18:34:42.249086+00:00",
+  "created_at": "2026-10-27T19:51:49.921533+00:00",
   "model_ids": [
     "scribe_v2",
     "whisper-large-v3-turbo"
@@ -168,7 +168,7 @@
   "environment": {
     "python_version": "3.14.9",
     "jiwer_version": "4.0.0",
-    "git_commit": "a27327a5cd6a94575629f35384a7272d7a958e4b",
+    "git_commit": "d9d1c708ec1107d35a7272b62c7b65bdb9b7ca86",
     "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O"
   },
   "run_configuration": {
@@ -718,17 +718,17 @@
   "validation_warnings": [],
   "score_status": "ok",
   "legacy_artifact_hashes_before": {
-    "results/evaluation/smoke_pl_basic_v1.json": "5525686ae7a94142d1358fa0884fc19722d9a0120741048de2889f5e4918936a",
+    "results/evaluation/smoke_pl_basic_v1.json": "2330ff1738014d68954e098009f96b6190c17be2a9d76f75f54e10ddb3969f94",
     "results/evaluation/smoke_comparison.md": "65a058ee0c847c946ce10bc87f235eed16dd9ef612751c61399b1901ba1c9992",
     "results/evaluation/smoke_error_taxonomy.md": "484b2110f71b33a4bd00b16ef03f2a83af499dc1f272ef6ff3242ab7a1e190ee",
-    "results/evaluation/smoke_alignment_pl_basic_v1.json": "dd6e3fbc08660e526ab9300cc0490e4f63a4fa5669747fbf50182616d16dc5cb",
+    "results/evaluation/smoke_alignment_pl_basic_v1.json": "61cfc3a0998bb818933921132cc22c670fea44bb70014a52742a3387567a89c3",
     "results/evaluation/transcipts.md": "03f4254bc18a8edacebb942a71146cc02daa8db7816dbeef14cb8e0da2fa55d7"
   },
   "legacy_artifact_hashes_after": {
-    "results/evaluation/smoke_pl_basic_v1.json": "5525686ae7a94142d1358fa0884fc19722d9a0120741048de2889f5e4918936a",
+    "results/evaluation/smoke_pl_basic_v1.json": "2330ff1738014d68954e098009f96b6190c17be2a9d76f75f54e10ddb3969f94",
     "results/evaluation/smoke_comparison.md": "65a058ee0c847c946ce10bc87f235eed16dd9ef612751c61399b1901ba1c9992",
     "results/evaluation/smoke_error_taxonomy.md": "484b2110f71b33a4bd00b16ef03f2a83af499dc1f272ef6ff3242ab7a1e190ee",
-    "results/evaluation/smoke_alignment_pl_basic_v1.json": "dd6e3fbc08660e526ab9300cc0490e4f63a4fa5669747fbf50182616d16dc5cb",
+    "results/evaluation/smoke_alignment_pl_basic_v1.json": "61cfc3a0998bb818933921132cc22c670fea44bb70014a52742a3387567a89c3",
     "results/evaluation/transcipts.md": "03f4254bc18a8edacebb942a71146cc02daa8db7816dbeef14cb8e0da2fa55d7"
   }
 }

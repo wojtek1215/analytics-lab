@@ -30,7 +30,7 @@ Conclusions are **not** general model rankings: N = 1 scripted recording, used d
 | Post-processing | none on saved hypotheses |
 | jiwer | `4.0.0` |
 | Python | `3.14.9` |
-| Git commit | `a27327a5cd6a94575629f35384a7272d7a958e4b` |
+| Git commit | `d9d1c708ec1107d35a7272b62c7b65bdb9b7ca86` |
 | reference_sha256 | `d8baa290a674226d0bd8108ece49dc8473669d62aa017194da5ce6fbcd412346` |
 | scribe_sha256 | `c30e5ed2fa6d46076e32ca79b22e91930cd2932634c6a455ee9c845412116cf2` |
 | whisper_sha256 | `09d4b87cdacd225de65bdffbaf9c5561e7ddb1d8e07c6f698c5a5aa5f0f41e5d` |
@@ -146,4 +146,4 @@ The normalizer is **not** a semantic understanding system: it applies determinis
 
 ---
 
-Generated at `2026-10-27T18:34:42.249086+00:00`. Legacy `results/evaluation/smoke_*` artifacts were not modified.
+Generated at `2026-10-27T19:51:49.921533+00:00`. Legacy `results/evaluation/smoke_*` artifacts were not modified.

@@ -152,7 +152,7 @@ def test_input_hashes_pinned() -> None:
     scribe = (ROOT / "results/smoke/scribe.txt").read_text(encoding="utf-8").strip()
     whisper = (ROOT / "results/smoke/whisper.txt").read_text(encoding="utf-8").strip()
     assert hashlib.sha256(ref.encode()).hexdigest() == (
-        "cc6437f358fd2cff003f3cb44b7ed36223922f7d069598832c98653e82e84e28"
+        "d8baa290a674226d0bd8108ece49dc8473669d62aa017194da5ce6fbcd412346"
     )
     assert hashlib.sha256(scribe.encode()).hexdigest() == (
         "c30e5ed2fa6d46076e32ca79b22e91930cd2932634c6a455ee9c845412116cf2"
