@@ -1,0 +1,734 @@
+{
+  "clip_id": "test_pl",
+  "evaluation_protocol": "polish_asr_eval_v2",
+  "evaluation_version": "2.0.0",
+  "primary_normalization_version": "pl_wer_normalized_v1",
+  "primary_metric_status": "accepted",
+  "primary_metric_warning": null,
+  "taxonomy_version": "taxonomy_v2",
+  "api_used": false,
+  "asr_inference_performed": false,
+  "created_at": "2026-10-27T18:34:42.249086+00:00",
+  "model_ids": [
+    "scribe_v2",
+    "whisper-large-v3-turbo"
+  ],
+  "models": {
+    "scribe_v2": {
+      "model_id": "scribe_v2",
+      "hypothesis_sha256": "c30e5ed2fa6d46076e32ca79b22e91930cd2932634c6a455ee9c845412116cf2",
+      "profiles": {
+        "pl_basic_v1": {
+          "wer": 0.25862068965517243,
+          "cer": 0.21749408983451538,
+          "substitutions": 7,
+          "deletions": 1,
+          "insertions": 7,
+          "hits": 50,
+          "n_words_ref": 58,
+          "n_words_hyp": 64,
+          "n_chars_ref": 423,
+          "char_substitutions": 14,
+          "char_deletions": 4,
+          "char_insertions": 74,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w dwa tysiące dwudziestym szóstym roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła dziewięćdziesiąt siedem przecinek pięć procent a koszt przetworzenia tysiąca nagrań przekroczył sto dwadzieścia złotych co ciekawe algorytm pomylił słowa może i morze a nazwę github zapisał jako githab czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalization_version": "pl_basic_v1",
+          "evaluation_version": "1.0.0",
+          "status": "ok"
+        },
+        "pl_numbers_v1": {
+          "wer": 0.08620689655172414,
+          "cer": 0.01904761904761905,
+          "substitutions": 4,
+          "deletions": 1,
+          "insertions": 0,
+          "hits": 53,
+          "n_words_ref": 58,
+          "n_words_hyp": 57,
+          "n_chars_ref": 420,
+          "char_substitutions": 3,
+          "char_deletions": 4,
+          "char_insertions": 1,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia 1000 nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent a koszt przetworzenia 1000 nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa może i morze a nazwę github zapisał jako githab czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalization_version": "pl_numbers_v1",
+          "evaluation_version": "1.0.0",
+          "status": "ok"
+        },
+        "pl_wer_normalized_v1": {
+          "wer": 0.08620689655172414,
+          "cer": 0.018912529550827423,
+          "substitutions": 4,
+          "deletions": 1,
+          "insertions": 0,
+          "hits": 53,
+          "n_words_ref": 58,
+          "n_words_hyp": 57,
+          "n_chars_ref": 423,
+          "char_substitutions": 3,
+          "char_deletions": 4,
+          "char_insertions": 1,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent a koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa może i morze a nazwę github zapisał jako githab czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalization_version": "pl_wer_normalized_v1",
+          "evaluation_version": "2.0.0",
+          "status": "ok"
+        }
+      },
+      "number_format_sensitivity": {
+        "wer_basic": 0.25862068965517243,
+        "wer_numbers": 0.08620689655172414,
+        "wer_normalized": 0.08620689655172414,
+        "delta_basic_to_normalized": -0.1724137931034483
+      }
+    },
+    "whisper-large-v3-turbo": {
+      "model_id": "whisper-large-v3-turbo",
+      "hypothesis_sha256": "09d4b87cdacd225de65bdffbaf9c5561e7ddb1d8e07c6f698c5a5aa5f0f41e5d",
+      "profiles": {
+        "pl_basic_v1": {
+          "wer": 0.27586206896551724,
+          "cer": 0.08983451536643026,
+          "substitutions": 12,
+          "deletions": 1,
+          "insertions": 3,
+          "hits": 45,
+          "n_words_ref": 58,
+          "n_words_hyp": 60,
+          "n_chars_ref": 423,
+          "char_substitutions": 10,
+          "char_deletions": 19,
+          "char_insertions": 9,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chat gpt whisper i eleven labs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 a tylko z przetworzenia tysiąca nagrań przekroczył 120 zł co ciekawe algoryt pomyli słowa może i może ale w github zapisał jako github czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji koniec",
+          "normalization_version": "pl_basic_v1",
+          "evaluation_version": "1.0.0",
+          "status": "ok"
+        },
+        "pl_numbers_v1": {
+          "wer": 0.27586206896551724,
+          "cer": 0.09047619047619047,
+          "substitutions": 12,
+          "deletions": 1,
+          "insertions": 3,
+          "hits": 45,
+          "n_words_ref": 58,
+          "n_words_hyp": 60,
+          "n_chars_ref": 420,
+          "char_substitutions": 10,
+          "char_deletions": 19,
+          "char_insertions": 9,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia 1000 nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chat gpt whisper i eleven labs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 a tylko z przetworzenia 1000 nagrań przekroczył 120 zł co ciekawe algoryt pomyli słowa może i może ale w github zapisał jako github czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji koniec",
+          "normalization_version": "pl_numbers_v1",
+          "evaluation_version": "1.0.0",
+          "status": "ok"
+        },
+        "pl_wer_normalized_v1": {
+          "wer": 0.1896551724137931,
+          "cer": 0.0591016548463357,
+          "substitutions": 8,
+          "deletions": 1,
+          "insertions": 2,
+          "hits": 49,
+          "n_words_ref": 58,
+          "n_words_hyp": 59,
+          "n_chars_ref": 423,
+          "char_substitutions": 10,
+          "char_deletions": 7,
+          "char_insertions": 8,
+          "normalized_reference": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent ale koszt przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algorytm pomylił słowa morze i może a nazwę github zapisał jako git hap czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji",
+          "normalized_hypothesis": "w 2026 roku sztuczna inteligencja zmienia sposób w jaki pracujemy czy chatgpt whisper i elevenlabs zastąpią kiedyś analityków danych według mojego eksperymentu dokładność rozpoznawania mowy wynosiła 97,5 procent a tylko z przetworzenia tysiąca nagrań przekroczył 120 złotych co ciekawe algoryt pomyli słowa może i może ale w github zapisał jako github czy naprawdę możemy ufać automatyzacji automatycznej transkrypcji koniec",
+          "normalization_version": "pl_wer_normalized_v1",
+          "evaluation_version": "2.0.0",
+          "status": "ok"
+        }
+      },
+      "number_format_sensitivity": {
+        "wer_basic": 0.27586206896551724,
+        "wer_numbers": 0.27586206896551724,
+        "wer_normalized": 0.1896551724137931,
+        "delta_basic_to_normalized": -0.08620689655172414
+      }
+    }
+  },
+  "hashes": {
+    "reference_sha256": "d8baa290a674226d0bd8108ece49dc8473669d62aa017194da5ce6fbcd412346",
+    "scribe_sha256": "c30e5ed2fa6d46076e32ca79b22e91930cd2932634c6a455ee9c845412116cf2",
+    "whisper_sha256": "09d4b87cdacd225de65bdffbaf9c5561e7ddb1d8e07c6f698c5a5aa5f0f41e5d",
+    "audio_sha256": "123e526bf736ba0ff08952d7c3c7b7de944a3f7f421ef7cca09dafbf4a317c94"
+  },
+  "paths": {
+    "reference": "data/raw/test_pl_reference.txt",
+    "scribe": "results/smoke/scribe.txt",
+    "whisper": "results/smoke/whisper.txt",
+    "audio": "data/raw/test_pl.m4a"
+  },
+  "environment": {
+    "python_version": "3.14.9",
+    "jiwer_version": "4.0.0",
+    "git_commit": "a27327a5cd6a94575629f35384a7272d7a958e4b",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O"
+  },
+  "run_configuration": {
+    "profiles": [
+      "pl_basic_v1",
+      "pl_numbers_v1",
+      "pl_wer_normalized_v1"
+    ],
+    "ablation_rule_sets": [
+      "numbers_only",
+      "numbers_percent",
+      "numbers_percent_units",
+      "full"
+    ]
+  },
+  "normalization_sensitivity": {
+    "scribe_v2": [
+      {
+        "rules_label": "numbers_only",
+        "enabled_rules": [
+          "digit_decimal_unify",
+          "minus_sign",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "year_ordinal"
+        ],
+        "wer": 0.08620689655172414,
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "cer": 0.018912529550827423
+      },
+      {
+        "rules_label": "numbers_percent",
+        "enabled_rules": [
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "year_ordinal"
+        ],
+        "wer": 0.08620689655172414,
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "cer": 0.018912529550827423
+      },
+      {
+        "rules_label": "numbers_percent_units",
+        "enabled_rules": [
+          "currency_symbol",
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "unit_abbrev",
+          "year_ordinal"
+        ],
+        "wer": 0.08620689655172414,
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "cer": 0.018912529550827423
+      },
+      {
+        "rules_label": "full",
+        "enabled_rules": [
+          "brand_tokenize",
+          "currency_symbol",
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "unit_abbrev",
+          "year_ordinal"
+        ],
+        "wer": 0.08620689655172414,
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "cer": 0.018912529550827423
+      }
+    ],
+    "whisper-large-v3-turbo": [
+      {
+        "rules_label": "numbers_only",
+        "enabled_rules": [
+          "digit_decimal_unify",
+          "minus_sign",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "year_ordinal"
+        ],
+        "wer": 0.27586206896551724,
+        "substitutions": 12,
+        "deletions": 1,
+        "insertions": 3,
+        "n_words_ref": 58,
+        "cer": 0.08983451536643026
+      },
+      {
+        "rules_label": "numbers_percent",
+        "enabled_rules": [
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "year_ordinal"
+        ],
+        "wer": 0.27586206896551724,
+        "substitutions": 11,
+        "deletions": 1,
+        "insertions": 4,
+        "n_words_ref": 58,
+        "cer": 0.07565011820330969
+      },
+      {
+        "rules_label": "numbers_percent_units",
+        "enabled_rules": [
+          "currency_symbol",
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "unit_abbrev",
+          "year_ordinal"
+        ],
+        "wer": 0.25862068965517243,
+        "substitutions": 10,
+        "deletions": 1,
+        "insertions": 4,
+        "n_words_ref": 58,
+        "cer": 0.06382978723404255
+      },
+      {
+        "rules_label": "full",
+        "enabled_rules": [
+          "brand_tokenize",
+          "currency_symbol",
+          "digit_decimal_unify",
+          "minus_sign",
+          "percent_symbol",
+          "spelled_cardinal",
+          "spelled_decimal",
+          "unit_abbrev",
+          "year_ordinal"
+        ],
+        "wer": 0.1896551724137931,
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 2,
+        "n_words_ref": 58,
+        "cer": 0.0591016548463357
+      }
+    ]
+  },
+  "taxonomy": {
+    "scribe_v2": {
+      "summary": {
+        "taxonomy_version": "taxonomy_v2",
+        "total_edit_mass": 5,
+        "mass_by_primary_category": {
+          "lexical_substitution": 1,
+          "homophone_ambiguity": 2,
+          "proper_name_recognition": 2
+        },
+        "pct_by_primary_category": {
+          "lexical_substitution": 0.2,
+          "homophone_ambiguity": 0.4,
+          "proper_name_recognition": 0.4
+        },
+        "mass_by_semantic_impact": {
+          "content_difference": 5
+        },
+        "pct_by_semantic_impact": {
+          "content_difference": 1.0
+        },
+        "secondary_tag_mass_overlapping": {},
+        "secondary_note": "Secondary tag masses may overlap with primary mass and must not be summed into exclusive totals.",
+        "review_status": "auto_inferred"
+      },
+      "edits": [
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "ale"
+          ],
+          "hyp_tokens": [
+            "a"
+          ],
+          "ref_start": 28,
+          "ref_end": 29,
+          "hyp_start": 28,
+          "hyp_end": 29,
+          "edit_mass": 1,
+          "primary_category": "lexical_substitution",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Single-token lexical substitution.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "ale",
+          "hyp_span": "a"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 41,
+          "hyp_end": 42,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "morze",
+          "hyp_span": "może"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "może"
+          ],
+          "hyp_tokens": [
+            "morze"
+          ],
+          "ref_start": 43,
+          "ref_end": 44,
+          "hyp_start": 43,
+          "hyp_end": 44,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "może",
+          "hyp_span": "morze"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "githab"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 49,
+          "hyp_end": 50,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "git",
+          "hyp_span": "githab"
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 50,
+          "hyp_end": 50,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Deletion of brand-misspelling token (e.g. hap) near a name span.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "hap",
+          "hyp_span": ""
+        }
+      ],
+      "alignment": {
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "wer": 0.08620689655172414
+      }
+    },
+    "whisper-large-v3-turbo": {
+      "summary": {
+        "taxonomy_version": "taxonomy_v2",
+        "total_edit_mass": 11,
+        "mass_by_primary_category": {
+          "insertion": 1,
+          "unclear": 6,
+          "homophone_ambiguity": 1,
+          "proper_name_recognition": 2,
+          "potential_hallucination": 1
+        },
+        "pct_by_primary_category": {
+          "insertion": 0.09090909090909091,
+          "unclear": 0.5454545454545454,
+          "homophone_ambiguity": 0.09090909090909091,
+          "proper_name_recognition": 0.18181818181818182,
+          "potential_hallucination": 0.09090909090909091
+        },
+        "mass_by_semantic_impact": {
+          "undetermined": 7,
+          "content_difference": 4
+        },
+        "pct_by_semantic_impact": {
+          "undetermined": 0.6363636363636364,
+          "content_difference": 0.36363636363636365
+        },
+        "secondary_tag_mass_overlapping": {
+          "insertion": 1
+        },
+        "secondary_note": "Secondary tag masses may overlap with primary mass and must not be summed into exclusive totals.",
+        "review_status": "auto_inferred"
+      },
+      "edits": [
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "a"
+          ],
+          "ref_start": 28,
+          "ref_end": 28,
+          "hyp_start": 28,
+          "hyp_end": 29,
+          "edit_mass": 1,
+          "primary_category": "insertion",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Generic insertion.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "",
+          "hyp_span": "a"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "ale",
+            "koszt"
+          ],
+          "hyp_tokens": [
+            "tylko",
+            "z"
+          ],
+          "ref_start": 28,
+          "ref_end": 30,
+          "hyp_start": 29,
+          "hyp_end": 31,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "ale koszt",
+          "hyp_span": "tylko z"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "algorytm",
+            "pomylił"
+          ],
+          "hyp_tokens": [
+            "algoryt",
+            "pomyli"
+          ],
+          "ref_start": 38,
+          "ref_end": 40,
+          "hyp_start": 39,
+          "hyp_end": 41,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "algorytm pomylił",
+          "hyp_span": "algoryt pomyli"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 42,
+          "hyp_end": 43,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "morze",
+          "hyp_span": "może"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "a",
+            "nazwę"
+          ],
+          "hyp_tokens": [
+            "ale",
+            "w"
+          ],
+          "ref_start": 44,
+          "ref_end": 46,
+          "hyp_start": 45,
+          "hyp_end": 47,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "a nazwę",
+          "hyp_span": "ale w"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "github"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 50,
+          "hyp_end": 51,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "git",
+          "hyp_span": "github"
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 51,
+          "hyp_end": 51,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Deletion of brand-misspelling token (e.g. hap) near a name span.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "hap",
+          "hyp_span": ""
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "koniec"
+          ],
+          "ref_start": 58,
+          "ref_end": 58,
+          "hyp_start": 58,
+          "hyp_end": 59,
+          "edit_mass": 1,
+          "primary_category": "potential_hallucination",
+          "secondary_tags": [
+            "insertion"
+          ],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Trailing insertion matching closed hallucination token list; not acoustically verified in this pipeline.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "",
+          "hyp_span": "koniec"
+        }
+      ],
+      "alignment": {
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 2,
+        "n_words_ref": 58,
+        "wer": 0.1896551724137931
+      }
+    }
+  },
+  "meaningful_error_notes": [
+    "scribe_v2: content substitution `ale` → `a`.",
+    "scribe_v2: homophone ambiguity `morze` → `może` (WER retains the distinction).",
+    "scribe_v2: homophone ambiguity `może` → `morze` (WER retains the distinction).",
+    "scribe_v2: proper-name recognition/misspelling `git` → `githab`.",
+    "scribe_v2: proper-name recognition/misspelling `hap` → ``.",
+    "whisper-large-v3-turbo: insertion of `a`.",
+    "whisper-large-v3-turbo: homophone ambiguity `morze` → `może` (WER retains the distinction).",
+    "whisper-large-v3-turbo: proper-name recognition/misspelling `git` → `github`.",
+    "whisper-large-v3-turbo: proper-name recognition/misspelling `hap` → ``.",
+    "whisper-large-v3-turbo: potential trailing hallucination `koniec` (insertion; not audio-verified here)."
+  ],
+  "unavailable_metrics": {
+    "named_entity_accuracy": "Requires verified entity span annotations on the reference; not present for this smoke clip.",
+    "number_value_accuracy_annotated": "Optional digit-token agreement can be derived, but annotated number-value accuracy needs human-verified number spans.",
+    "critical_meaning_error_rate": "Requires human labels for meaning-changing errors."
+  },
+  "validation_warnings": [],
+  "score_status": "ok",
+  "legacy_artifact_hashes_before": {
+    "results/evaluation/smoke_pl_basic_v1.json": "5525686ae7a94142d1358fa0884fc19722d9a0120741048de2889f5e4918936a",
+    "results/evaluation/smoke_comparison.md": "65a058ee0c847c946ce10bc87f235eed16dd9ef612751c61399b1901ba1c9992",
+    "results/evaluation/smoke_error_taxonomy.md": "484b2110f71b33a4bd00b16ef03f2a83af499dc1f272ef6ff3242ab7a1e190ee",
+    "results/evaluation/smoke_alignment_pl_basic_v1.json": "dd6e3fbc08660e526ab9300cc0490e4f63a4fa5669747fbf50182616d16dc5cb",
+    "results/evaluation/transcipts.md": "03f4254bc18a8edacebb942a71146cc02daa8db7816dbeef14cb8e0da2fa55d7"
+  },
+  "legacy_artifact_hashes_after": {
+    "results/evaluation/smoke_pl_basic_v1.json": "5525686ae7a94142d1358fa0884fc19722d9a0120741048de2889f5e4918936a",
+    "results/evaluation/smoke_comparison.md": "65a058ee0c847c946ce10bc87f235eed16dd9ef612751c61399b1901ba1c9992",
+    "results/evaluation/smoke_error_taxonomy.md": "484b2110f71b33a4bd00b16ef03f2a83af499dc1f272ef6ff3242ab7a1e190ee",
+    "results/evaluation/smoke_alignment_pl_basic_v1.json": "dd6e3fbc08660e526ab9300cc0490e4f63a4fa5669747fbf50182616d16dc5cb",
+    "results/evaluation/transcipts.md": "03f4254bc18a8edacebb942a71146cc02daa8db7816dbeef14cb8e0da2fa55d7"
+  }
+}

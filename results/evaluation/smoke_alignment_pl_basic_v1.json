@@ -1,0 +1,507 @@
+{
+  "clip_id": "test_pl",
+  "normalization_version": "pl_basic_v1",
+  "taxonomy_version": "taxonomy_v0",
+  "paths": {
+    "reference": "data/raw/test_pl_reference.txt",
+    "scribe": "results/smoke/scribe.txt",
+    "whisper": "results/smoke/whisper.txt",
+    "baseline_json": "results/evaluation/smoke_pl_basic_v1.json"
+  },
+  "models": [
+    {
+      "clip_id": "test_pl",
+      "model_id": "scribe_v2",
+      "normalization_version": "pl_basic_v1",
+      "taxonomy_version": "taxonomy_v0",
+      "wer": 0.25862068965517243,
+      "substitutions": 7,
+      "deletions": 1,
+      "insertions": 7,
+      "n_words_ref": 58,
+      "total_edit_mass": 15,
+      "wer_check_ok": true,
+      "pl_numbers_v1_wer_auxiliary": 0.08620689655172414,
+      "summary": {
+        "taxonomy_version": "taxonomy_v0",
+        "total_edit_mass": 15,
+        "mass_by_tag": {
+          "number_format": 10,
+          "lexical": 1,
+          "homophone": 2,
+          "proper_name": 2
+        },
+        "pct_by_tag": {
+          "number_format": 0.6666666666666666,
+          "lexical": 0.06666666666666667,
+          "homophone": 0.13333333333333333,
+          "proper_name": 0.13333333333333333
+        },
+        "mass_by_content_impact": {
+          "format_only": 12,
+          "content_changing": 3
+        },
+        "pct_by_content_impact": {
+          "format_only": 0.8,
+          "content_changing": 0.2
+        }
+      },
+      "ops": [
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "dwa",
+            "tysiące",
+            "dwudziestym"
+          ],
+          "ref_start": 1,
+          "ref_end": 1,
+          "hyp_start": 1,
+          "hyp_end": 4,
+          "edit_mass": 3,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "2026"
+          ],
+          "hyp_tokens": [
+            "szóstym"
+          ],
+          "ref_start": 1,
+          "ref_end": 2,
+          "hyp_start": 4,
+          "hyp_end": 5,
+          "edit_mass": 1,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "dziewięćdziesiąt",
+            "siedem",
+            "przecinek"
+          ],
+          "ref_start": 26,
+          "ref_end": 26,
+          "hyp_start": 29,
+          "hyp_end": 32,
+          "edit_mass": 3,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "97,5"
+          ],
+          "hyp_tokens": [
+            "pięć"
+          ],
+          "ref_start": 26,
+          "ref_end": 27,
+          "hyp_start": 32,
+          "hyp_end": 33,
+          "edit_mass": 1,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "ale"
+          ],
+          "hyp_tokens": [
+            "a"
+          ],
+          "ref_start": 28,
+          "ref_end": 29,
+          "hyp_start": 34,
+          "hyp_end": 35,
+          "edit_mass": 1,
+          "tag": "lexical",
+          "content_impact": "content_changing",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "sto"
+          ],
+          "ref_start": 34,
+          "ref_end": 34,
+          "hyp_start": 40,
+          "hyp_end": 41,
+          "edit_mass": 1,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "120"
+          ],
+          "hyp_tokens": [
+            "dwadzieścia"
+          ],
+          "ref_start": 34,
+          "ref_end": 35,
+          "hyp_start": 41,
+          "hyp_end": 42,
+          "edit_mass": 1,
+          "tag": "number_format",
+          "content_impact": "format_only",
+          "notes": "pl_numbers_v1_signal",
+          "numbers_span_resolved": true
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 48,
+          "hyp_end": 49,
+          "edit_mass": 1,
+          "tag": "homophone",
+          "content_impact": "content_changing",
+          "notes": "closed homophone list (morze/może)",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "może"
+          ],
+          "hyp_tokens": [
+            "morze"
+          ],
+          "ref_start": 43,
+          "ref_end": 44,
+          "hyp_start": 50,
+          "hyp_end": 51,
+          "edit_mass": 1,
+          "tag": "homophone",
+          "content_impact": "content_changing",
+          "notes": "closed homophone list (morze/może)",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "githab"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 56,
+          "hyp_end": 57,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 57,
+          "hyp_end": 57,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        }
+      ],
+      "baseline_crosscheck": true
+    },
+    {
+      "clip_id": "test_pl",
+      "model_id": "whisper-large-v3-turbo",
+      "normalization_version": "pl_basic_v1",
+      "taxonomy_version": "taxonomy_v0",
+      "wer": 0.27586206896551724,
+      "substitutions": 12,
+      "deletions": 1,
+      "insertions": 3,
+      "n_words_ref": 58,
+      "total_edit_mass": 16,
+      "wer_check_ok": true,
+      "pl_numbers_v1_wer_auxiliary": 0.27586206896551724,
+      "summary": {
+        "taxonomy_version": "taxonomy_v0",
+        "total_edit_mass": 16,
+        "mass_by_tag": {
+          "proper_name": 6,
+          "lexical": 8,
+          "homophone": 1,
+          "insertion_extra": 1
+        },
+        "pct_by_tag": {
+          "proper_name": 0.375,
+          "lexical": 0.5,
+          "homophone": 0.0625,
+          "insertion_extra": 0.0625
+        },
+        "mass_by_content_impact": {
+          "format_only": 6,
+          "content_changing": 10
+        },
+        "pct_by_content_impact": {
+          "format_only": 0.375,
+          "content_changing": 0.625
+        }
+      },
+      "ops": [
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "chat"
+          ],
+          "ref_start": 11,
+          "ref_end": 11,
+          "hyp_start": 11,
+          "hyp_end": 12,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "chatgpt"
+          ],
+          "hyp_tokens": [
+            "gpt"
+          ],
+          "ref_start": 11,
+          "ref_end": 12,
+          "hyp_start": 12,
+          "hyp_end": 13,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "eleven"
+          ],
+          "ref_start": 14,
+          "ref_end": 14,
+          "hyp_start": 15,
+          "hyp_end": 16,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "elevenlabs"
+          ],
+          "hyp_tokens": [
+            "labs"
+          ],
+          "ref_start": 14,
+          "ref_end": 15,
+          "hyp_start": 16,
+          "hyp_end": 17,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "procent",
+            "ale",
+            "koszt"
+          ],
+          "hyp_tokens": [
+            "a",
+            "tylko",
+            "z"
+          ],
+          "ref_start": 27,
+          "ref_end": 30,
+          "hyp_start": 29,
+          "hyp_end": 32,
+          "edit_mass": 3,
+          "tag": "lexical",
+          "content_impact": "content_changing",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "złotych"
+          ],
+          "hyp_tokens": [
+            "zł"
+          ],
+          "ref_start": 35,
+          "ref_end": 36,
+          "hyp_start": 37,
+          "hyp_end": 38,
+          "edit_mass": 1,
+          "tag": "lexical",
+          "content_impact": "content_changing",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "algorytm",
+            "pomylił"
+          ],
+          "hyp_tokens": [
+            "algoryt",
+            "pomyli"
+          ],
+          "ref_start": 38,
+          "ref_end": 40,
+          "hyp_start": 40,
+          "hyp_end": 42,
+          "edit_mass": 2,
+          "tag": "lexical",
+          "content_impact": "content_changing",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 43,
+          "hyp_end": 44,
+          "edit_mass": 1,
+          "tag": "homophone",
+          "content_impact": "content_changing",
+          "notes": "closed homophone list (morze/może)",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "a",
+            "nazwę"
+          ],
+          "hyp_tokens": [
+            "ale",
+            "w"
+          ],
+          "ref_start": 44,
+          "ref_end": 46,
+          "hyp_start": 46,
+          "hyp_end": 48,
+          "edit_mass": 2,
+          "tag": "lexical",
+          "content_impact": "content_changing",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "github"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 51,
+          "hyp_end": 52,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 52,
+          "hyp_end": 52,
+          "edit_mass": 1,
+          "tag": "proper_name",
+          "content_impact": "format_only",
+          "notes": "",
+          "numbers_span_resolved": false
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "koniec"
+          ],
+          "ref_start": 58,
+          "ref_end": 58,
+          "hyp_start": 59,
+          "hyp_end": 60,
+          "edit_mass": 1,
+          "tag": "insertion_extra",
+          "content_impact": "content_changing",
+          "notes": "hallucination_trailing",
+          "numbers_span_resolved": false
+        }
+      ],
+      "baseline_crosscheck": true
+    }
+  ],
+  "interpretation": "Scribe edit mass is dominated by number-related tags (number_format=66.7%, ambiguous-with-numbers often nearby; ambiguous=0.0%); format_only impact ≈ 80.0%. Whisper retains similar headline WER but more lexical=50.0%, proper_name=37.5%, insertion_extra=6.2%; content_changing ≈ 62.5%. Nearly equal WER therefore does not imply similar error types.",
+  "notes": "Diagnostic only. Does not overwrite results/smoke/ or primary smoke_pl_basic_v1.json metrics fields. pl_numbers_v1 WER is auxiliary."
+}

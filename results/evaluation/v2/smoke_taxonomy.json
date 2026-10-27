@@ -1,0 +1,370 @@
+{
+  "clip_id": "test_pl",
+  "taxonomy_version": "taxonomy_v2",
+  "normalization_version": "pl_wer_normalized_v1",
+  "models": {
+    "scribe_v2": {
+      "summary": {
+        "taxonomy_version": "taxonomy_v2",
+        "total_edit_mass": 5,
+        "mass_by_primary_category": {
+          "lexical_substitution": 1,
+          "homophone_ambiguity": 2,
+          "proper_name_recognition": 2
+        },
+        "pct_by_primary_category": {
+          "lexical_substitution": 0.2,
+          "homophone_ambiguity": 0.4,
+          "proper_name_recognition": 0.4
+        },
+        "mass_by_semantic_impact": {
+          "content_difference": 5
+        },
+        "pct_by_semantic_impact": {
+          "content_difference": 1.0
+        },
+        "secondary_tag_mass_overlapping": {},
+        "secondary_note": "Secondary tag masses may overlap with primary mass and must not be summed into exclusive totals.",
+        "review_status": "auto_inferred"
+      },
+      "edits": [
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "ale"
+          ],
+          "hyp_tokens": [
+            "a"
+          ],
+          "ref_start": 28,
+          "ref_end": 29,
+          "hyp_start": 28,
+          "hyp_end": 29,
+          "edit_mass": 1,
+          "primary_category": "lexical_substitution",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Single-token lexical substitution.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "ale",
+          "hyp_span": "a"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 41,
+          "hyp_end": 42,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "morze",
+          "hyp_span": "może"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "może"
+          ],
+          "hyp_tokens": [
+            "morze"
+          ],
+          "ref_start": 43,
+          "ref_end": 44,
+          "hyp_start": 43,
+          "hyp_end": 44,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "może",
+          "hyp_span": "morze"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "githab"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 49,
+          "hyp_end": 50,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "git",
+          "hyp_span": "githab"
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 50,
+          "hyp_end": 50,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Deletion of brand-misspelling token (e.g. hap) near a name span.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "hap",
+          "hyp_span": ""
+        }
+      ],
+      "alignment": {
+        "substitutions": 4,
+        "deletions": 1,
+        "insertions": 0,
+        "n_words_ref": 58,
+        "wer": 0.08620689655172414
+      }
+    },
+    "whisper-large-v3-turbo": {
+      "summary": {
+        "taxonomy_version": "taxonomy_v2",
+        "total_edit_mass": 11,
+        "mass_by_primary_category": {
+          "insertion": 1,
+          "unclear": 6,
+          "homophone_ambiguity": 1,
+          "proper_name_recognition": 2,
+          "potential_hallucination": 1
+        },
+        "pct_by_primary_category": {
+          "insertion": 0.09090909090909091,
+          "unclear": 0.5454545454545454,
+          "homophone_ambiguity": 0.09090909090909091,
+          "proper_name_recognition": 0.18181818181818182,
+          "potential_hallucination": 0.09090909090909091
+        },
+        "mass_by_semantic_impact": {
+          "undetermined": 7,
+          "content_difference": 4
+        },
+        "pct_by_semantic_impact": {
+          "undetermined": 0.6363636363636364,
+          "content_difference": 0.36363636363636365
+        },
+        "secondary_tag_mass_overlapping": {
+          "insertion": 1
+        },
+        "secondary_note": "Secondary tag masses may overlap with primary mass and must not be summed into exclusive totals.",
+        "review_status": "auto_inferred"
+      },
+      "edits": [
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "a"
+          ],
+          "ref_start": 28,
+          "ref_end": 28,
+          "hyp_start": 28,
+          "hyp_end": 29,
+          "edit_mass": 1,
+          "primary_category": "insertion",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Generic insertion.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "",
+          "hyp_span": "a"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "ale",
+            "koszt"
+          ],
+          "hyp_tokens": [
+            "tylko",
+            "z"
+          ],
+          "ref_start": 28,
+          "ref_end": 30,
+          "hyp_start": 29,
+          "hyp_end": 31,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "ale koszt",
+          "hyp_span": "tylko z"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "algorytm",
+            "pomylił"
+          ],
+          "hyp_tokens": [
+            "algoryt",
+            "pomyli"
+          ],
+          "ref_start": 38,
+          "ref_end": 40,
+          "hyp_start": 39,
+          "hyp_end": 41,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "algorytm pomylił",
+          "hyp_span": "algoryt pomyli"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "morze"
+          ],
+          "hyp_tokens": [
+            "może"
+          ],
+          "ref_start": 41,
+          "ref_end": 42,
+          "hyp_start": 42,
+          "hyp_end": 43,
+          "edit_mass": 1,
+          "primary_category": "homophone_ambiguity",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Closed homophone pair (morze/może); acoustically ambiguous, kept distinct in WER.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "morze",
+          "hyp_span": "może"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "a",
+            "nazwę"
+          ],
+          "hyp_tokens": [
+            "ale",
+            "w"
+          ],
+          "ref_start": 44,
+          "ref_end": 46,
+          "hyp_start": 45,
+          "hyp_end": 47,
+          "edit_mass": 2,
+          "primary_category": "unclear",
+          "secondary_tags": [],
+          "semantic_impact": "undetermined",
+          "review_status": "auto_inferred",
+          "rationale": "Mixed or multi-token substitution; automatic label uncertain.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "a nazwę",
+          "hyp_span": "ale w"
+        },
+        {
+          "op": "substitute",
+          "ref_tokens": [
+            "git"
+          ],
+          "hyp_tokens": [
+            "github"
+          ],
+          "ref_start": 49,
+          "ref_end": 50,
+          "hyp_start": 50,
+          "hyp_end": 51,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Brand spelling difference involving a misspelling token (e.g. git hap / githab); not format-only.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "git",
+          "hyp_span": "github"
+        },
+        {
+          "op": "delete",
+          "ref_tokens": [
+            "hap"
+          ],
+          "hyp_tokens": [],
+          "ref_start": 50,
+          "ref_end": 51,
+          "hyp_start": 51,
+          "hyp_end": 51,
+          "edit_mass": 1,
+          "primary_category": "proper_name_recognition",
+          "secondary_tags": [],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Deletion of brand-misspelling token (e.g. hap) near a name span.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "hap",
+          "hyp_span": ""
+        },
+        {
+          "op": "insert",
+          "ref_tokens": [],
+          "hyp_tokens": [
+            "koniec"
+          ],
+          "ref_start": 58,
+          "ref_end": 58,
+          "hyp_start": 58,
+          "hyp_end": 59,
+          "edit_mass": 1,
+          "primary_category": "potential_hallucination",
+          "secondary_tags": [
+            "insertion"
+          ],
+          "semantic_impact": "content_difference",
+          "review_status": "auto_inferred",
+          "rationale": "Trailing insertion matching closed hallucination token list; not acoustically verified in this pipeline.",
+          "normalization_version": "pl_wer_normalized_v1",
+          "ref_span": "",
+          "hyp_span": "koniec"
+        }
+      ],
+      "alignment": {
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 2,
+        "n_words_ref": 58,
+        "wer": 0.1896551724137931
+      }
+    }
+  },
+  "review_status": "auto_inferred"
+}
