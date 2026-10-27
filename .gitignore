@@ -149,8 +149,12 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environments and local secrets
 .env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
 .envrc
 .venv
 env/
@@ -158,6 +162,21 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Credential and key material (never commit)
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+credentials.json
+service-account.json
+service_account.json
+.netrc
+.aws/credentials
 
 # Spyder project settings
 .spyderproject
@@ -218,3 +237,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local / private planning artifacts (review before any intentional publish)
+elevenlabs_benchmark_plan.pdf
+
+# Raw recordings and private source material (public fixtures require explicit review)
+data/raw/
+
+# Local OS / editor noise
+.DS_Store
+
+# Local analysis scratch (keep curated results intentional and reviewed)
+results/.cache/
+tmp/
+temp/
+*.tmp
+
+# Private internal notes (uncomment or extend only after path review)
+# private/
+# docs/internal/
+
+# Local Cursor project config (rules/skills kept out of the public tree for now)
+.cursor/
