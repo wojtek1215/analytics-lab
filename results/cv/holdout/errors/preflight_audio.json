@@ -1,0 +1,10 @@
+{
+  "manifest": "data/manifests/cv27_pl_test_speaker_disjoint_v1_holdout.csv",
+  "n_clips": 200,
+  "n_issue_rows": 0,
+  "n_clips_with_issues": 0,
+  "min_duration_ms": 200,
+  "min_bytes": 1,
+  "issues": [],
+  "note": "Automated suspects only. ref_ne_audio requires human listen. See docs/evaluation_protocol.md."
+}

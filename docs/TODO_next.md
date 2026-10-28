@@ -26,10 +26,13 @@ Status: `polish_asr_eval_v2` / `pl_wer_normalized_v1` is **FROZEN** primary for 
 - [x] Results tree `results/cv/{qa,pilot,holdout}/` with `hypotheses|metrics|errors|reports` (see `docs/results_layout.md`).
 - [x] Run **local Whisper** on **qa (10)** → `results/cv/qa/hypotheses/whisper/` (`scripts/run_whisper_batch.py`; api_used=false).
 - [x] Score qa + **error taxonomy** → `results/cv/qa/metrics|errors|reports/` (`scripts/evaluate_cohort.py`).
-- [ ] After qa looks sane, Whisper on **pilot (40)**; draft `errors/hard_cases.md` (where models fail most); still no holdout peeking for methodology changes.
-- [x] Scribe batch CLI ready (`scripts/run_scribe_batch.py`; dry-run default; `--execute --i-accept-paid-api` gated) for same qa manifest.
+- [x] Pilot (40): Whisper + Scribe + offline score → `results/cv/pilot/` (Scribe 5.9% / Whisper 8.1% corpus WER).
+- [x] Scribe batch CLI ready (`scripts/run_scribe_batch.py`; dry-run default; `--execute --i-accept-paid-api` gated).
 - [x] ElevenLabs Scribe **live** qa(10) → `results/cv/qa/hypotheses/scribe/` (10/10 ok).
-- [ ] Identical audio and frozen protocol for both models; corpus WER = sum(edits)/sum(N); paired per-clip differences **plus** taxonomy mass comparison.
+- [x] Review pilot hard cases (owner listen + Whisper/Scribe audit); exclusion/reporting/`pathological_hyp_v1` locked in `docs/evaluation_protocol.md` (2026-10-28).
+- [x] Implement `pathological_hyp_v1` auto-flag in report/eval tooling (sensitivity table; does not change primary WER) — pilot rescored 2026-10-28 → `results/cv/pilot/errors/pathological_hyp_v1.{json,md}`.
+- [x] Automated holdout audio preflight (2026-10-28): `scripts/preflight_cv_clips.py` → `results/cv/holdout/errors/preflight_audio.json` — **0 issues** on N=200 (pilot N=40 also 0).
+- [ ] Holdout when methodology locked; paired CI for larger N.
 - [ ] For larger N, use appropriate paired uncertainty estimation (not applicable to N=1 smoke).
 - [ ] Product framing: *when* Scribe is better/worse than Whisper for Polish (**which error types**, content vs format), not a single ranking.
 

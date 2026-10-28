@@ -23,6 +23,12 @@ from asr_benchmark.evaluation.normalize_v2 import (
     EVALUATION_PROTOCOL,
     WER_NORMALIZATION_VERSION,
 )
+from asr_benchmark.evaluation.pathological_hyp import (
+    PATHOLOGICAL_HYP_VERSION,
+    flag_pathological_hypothesis,
+    render_pathological_md,
+    summarize_pathological_flags,
+)
 from asr_benchmark.evaluation.taxonomy_v2 import (
     TAXONOMY_VERSION,
     reconcile_taxonomy_with_metrics,
@@ -62,6 +68,10 @@ def score_cohort(
     taxonomy_by_model: dict[str, list[dict[str, Any]]] = {
         mid: [] for mid in hypothesis_dirs
     }
+    pathological_rows: list[dict[str, Any]] = []
+    flagged_clip_ids_by_model: dict[str, set[str]] = {
+        mid: set() for mid in hypothesis_dirs
+    }
     missing: list[dict[str, str]] = []
 
     for clip in clips:
@@ -80,6 +90,24 @@ def score_cohort(
                 continue
 
             reference = clip.sentence
+            path_flag = flag_pathological_hypothesis(
+                hypothesis, reference=reference
+            )
+            path_row = {
+                "cohort_id": cohort_id,
+                "clip_id": clip.clip_id,
+                "model_id": model_id,
+                "flagged": path_flag.flagged,
+                "reasons": list(path_flag.reasons),
+                "n_tokens": path_flag.n_tokens,
+                "reference": reference,
+                "hypothesis": hypothesis,
+                "rule_version": path_flag.rule_version,
+            }
+            pathological_rows.append(path_row)
+            if path_flag.flagged:
+                flagged_clip_ids_by_model[model_id].add(clip.clip_id)
+
             for profile in PROFILES:
                 m = compute_metrics(
                     reference,
@@ -162,6 +190,37 @@ def score_cohort(
             agg = aggregate_corpus(clip_metrics)
             corpus[model_id][profile] = agg.to_dict()
 
+    primary_corpus_by_model = {
+        mid: profiles[PRIMARY_PROFILE]
+        for mid, profiles in corpus.items()
+        if PRIMARY_PROFILE in profiles
+    }
+    sensitivity_corpus_by_model: dict[str, dict[str, Any]] = {}
+    for model_id, by_profile in metrics_by_model_profile.items():
+        primary_clips = by_profile.get(PRIMARY_PROFILE) or []
+        if not primary_clips:
+            continue
+        flagged_ids = flagged_clip_ids_by_model.get(model_id) or set()
+        kept = [c for c in primary_clips if c.clip_id not in flagged_ids]
+        if not kept:
+            sensitivity_corpus_by_model[model_id] = {
+                "n_clips": 0,
+                "wer": None,
+                "note": "all_clips_flagged_no_sensitivity_wer",
+                "n_excluded_flagged": len(flagged_ids),
+            }
+            continue
+        sens = aggregate_corpus(kept).to_dict()
+        sens["n_excluded_flagged"] = len(flagged_ids)
+        sensitivity_corpus_by_model[model_id] = sens
+
+    pathological = summarize_pathological_flags(
+        pathological_rows,
+        primary_corpus_by_model=primary_corpus_by_model,
+        sensitivity_corpus_by_model=sensitivity_corpus_by_model,
+    )
+    pathological["cohort_id"] = cohort_id
+
     taxonomy_summary: dict[str, Any] = {}
     for model_id, tagged_dicts in taxonomy_by_model.items():
         if not tagged_dicts:
@@ -206,6 +265,8 @@ def score_cohort(
         "per_clip": per_clip_rows,
         "alignment_rows": alignment_rows,
         "hard_cases": hard_cases,
+        "pathological_hyp_version": PATHOLOGICAL_HYP_VERSION,
+        "pathological_hyp": pathological,
     }
 
 
@@ -288,6 +349,8 @@ def write_cohort_artifacts(payload: Mapping[str, Any], *, cohort_dir: Path) -> d
     taxonomy_path = errors_dir / "taxonomy_summary.json"
     hard_cases_json = errors_dir / "hard_cases.json"
     hard_cases_md = errors_dir / "hard_cases.md"
+    pathological_json = errors_dir / f"{PATHOLOGICAL_HYP_VERSION}.json"
+    pathological_md = errors_dir / f"{PATHOLOGICAL_HYP_VERSION}.md"
     report_md = reports_dir / "comparison.md"
 
     corpus_path.write_text(
@@ -374,6 +437,18 @@ def write_cohort_artifacts(payload: Mapping[str, Any], *, cohort_dir: Path) -> d
     hard_cases_md.write_text(
         _render_hard_cases_md(payload), encoding="utf-8"
     )
+    path_payload = payload.get("pathological_hyp") or {
+        "rule_version": PATHOLOGICAL_HYP_VERSION,
+        "cohort_id": payload.get("cohort_id"),
+        "changes_primary_wer": False,
+        "by_model": {},
+        "rows": [],
+    }
+    pathological_json.write_text(
+        json.dumps(path_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    pathological_md.write_text(render_pathological_md(path_payload), encoding="utf-8")
     report_md.write_text(_render_comparison_md(payload), encoding="utf-8")
 
     return {
@@ -383,6 +458,8 @@ def write_cohort_artifacts(payload: Mapping[str, Any], *, cohort_dir: Path) -> d
         "taxonomy": taxonomy_path,
         "hard_cases_json": hard_cases_json,
         "hard_cases_md": hard_cases_md,
+        "pathological_json": pathological_json,
+        "pathological_md": pathological_md,
         "report": report_md,
     }
 
@@ -466,6 +543,51 @@ def _render_comparison_md(payload: Mapping[str, Any]) -> str:
             )
         lines.append("")
 
+    path_payload = payload.get("pathological_hyp") or {}
+    lines.extend(
+        [
+            "## Pathology impact",
+            "",
+            str(
+                path_payload.get("finding")
+                or (
+                    "Pathology impact estimates how much catastrophic ASR collapse "
+                    "inflates the headline WER, while keeping those clips in the "
+                    "primary score for transparency."
+                )
+            ),
+            "",
+            f"Auto-flag rule `{payload.get('pathological_hyp_version', PATHOLOGICAL_HYP_VERSION)}` "
+            "does **not** change primary WER. "
+            "Details: "
+            f"[`../errors/{PATHOLOGICAL_HYP_VERSION}.md`]"
+            f"(../errors/{PATHOLOGICAL_HYP_VERSION}.md).",
+            "",
+            "| Model | Flagged / scored | Primary WER | Pathology-excluded WER | Pathology impact (pp) |",
+            "|---|---:|---:|---:|---:|",
+        ]
+    )
+    by_model = path_payload.get("by_model") or {}
+    if by_model:
+        for model_id, bucket in by_model.items():
+            prim = bucket.get("primary_wer")
+            sens = bucket.get("pathology_excluded_wer")
+            if sens is None:
+                sens = (bucket.get("sensitivity_excluding_flagged") or {}).get("wer")
+            impact = bucket.get("pathology_impact_pp")
+            prim_s = _pct(prim) if isinstance(prim, (int, float)) else "—"
+            sens_s = _pct(sens) if isinstance(sens, (int, float)) else "—"
+            impact_s = (
+                f"{impact:+.2f}" if isinstance(impact, (int, float)) else "—"
+            )
+            lines.append(
+                f"| `{model_id}` | {bucket.get('n_flagged', 0)}/"
+                f"{bucket.get('n_scored', 0)} | {prim_s} | {sens_s} | {impact_s} |"
+            )
+    else:
+        lines.append("| _(none)_ | — | — | — | — |")
+    lines.append("")
+
     lines.extend(
         [
             "## Hard cases",
@@ -478,6 +600,7 @@ def _render_comparison_md(payload: Mapping[str, Any]) -> str:
             f"- N = {payload['n_clips_manifest']} QA clips; not a population estimate.",
             "- Holdout must not guide methodology changes.",
             "- Taxonomy labels are auto-inferred until human review.",
+            "- Pathological auto-flags are heuristic; primary metrics keep all clips.",
             "",
         ]
     )
