@@ -1,0 +1,107 @@
+{
+  "cohort_id": "cv27_pl_qa",
+  "evaluation_protocol": "polish_asr_eval_v2",
+  "evaluation_version": "2.0.0",
+  "primary_normalization_version": "pl_wer_normalized_v1",
+  "n_clips_manifest": 10,
+  "n_missing_hypotheses": 0,
+  "missing_hypotheses": [],
+  "corpus": {
+    "scribe_v2": {
+      "pl_basic_v1": {
+        "n_clips": 10,
+        "wer": 0.043478260869565216,
+        "cer": 0.01627906976744186,
+        "substitutions": 3,
+        "deletions": 0,
+        "insertions": 0,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 2,
+        "char_deletions": 5,
+        "char_insertions": 0,
+        "normalization_version": "pl_basic_v1",
+        "evaluation_version": "2.0.0"
+      },
+      "pl_numbers_v1": {
+        "n_clips": 10,
+        "wer": 0.043478260869565216,
+        "cer": 0.01627906976744186,
+        "substitutions": 3,
+        "deletions": 0,
+        "insertions": 0,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 2,
+        "char_deletions": 5,
+        "char_insertions": 0,
+        "normalization_version": "pl_numbers_v1",
+        "evaluation_version": "2.0.0"
+      },
+      "pl_wer_normalized_v1": {
+        "n_clips": 10,
+        "wer": 0.043478260869565216,
+        "cer": 0.01627906976744186,
+        "substitutions": 3,
+        "deletions": 0,
+        "insertions": 0,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 2,
+        "char_deletions": 5,
+        "char_insertions": 0,
+        "normalization_version": "pl_wer_normalized_v1",
+        "evaluation_version": "2.0.0"
+      }
+    },
+    "whisper-large-v3-turbo": {
+      "pl_basic_v1": {
+        "n_clips": 10,
+        "wer": 0.17391304347826086,
+        "cer": 0.044186046511627906,
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 3,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 7,
+        "char_deletions": 5,
+        "char_insertions": 7,
+        "normalization_version": "pl_basic_v1",
+        "evaluation_version": "2.0.0"
+      },
+      "pl_numbers_v1": {
+        "n_clips": 10,
+        "wer": 0.17391304347826086,
+        "cer": 0.044186046511627906,
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 3,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 7,
+        "char_deletions": 5,
+        "char_insertions": 7,
+        "normalization_version": "pl_numbers_v1",
+        "evaluation_version": "2.0.0"
+      },
+      "pl_wer_normalized_v1": {
+        "n_clips": 10,
+        "wer": 0.17391304347826086,
+        "cer": 0.044186046511627906,
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 3,
+        "n_words_ref": 69,
+        "n_chars_ref": 430,
+        "char_substitutions": 7,
+        "char_deletions": 5,
+        "char_insertions": 7,
+        "normalization_version": "pl_wer_normalized_v1",
+        "evaluation_version": "2.0.0"
+      }
+    }
+  },
+  "api_used": false,
+  "asr_inference_performed": false
+}
