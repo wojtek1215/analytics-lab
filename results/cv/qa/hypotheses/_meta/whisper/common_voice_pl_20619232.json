@@ -1,0 +1,16 @@
+{
+  "clip_id": "common_voice_pl_20619232",
+  "split": "qa",
+  "status": "ok",
+  "model_id": "whisper-large-v3-turbo",
+  "model_repo": "mlx-community/whisper-large-v3-turbo",
+  "language": "pl",
+  "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_20619232.mp3",
+  "audio_relative": "clips/common_voice_pl_20619232.mp3",
+  "duration_ms_manifest": 5256,
+  "latency_s": 0.215,
+  "hypothesis_path": "results/cv/qa/hypotheses/whisper/common_voice_pl_20619232.txt",
+  "hypothesis_chars": 55,
+  "timestamp_utc": "2026-10-27T21:10:42.632299+00:00",
+  "api_used": false
+}

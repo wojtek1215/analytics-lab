@@ -1,0 +1,218 @@
+[
+  {
+    "clip_id": "common_voice_pl_20621575",
+    "max_primary_wer": 0.6666666666666666,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Wszystko bierze dosłownie",
+        "reference": "Wszystko bierze dosłownie."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.6666666666666666,
+        "sdi": "1/0/1",
+        "hypothesis": "Wszystko bierze do słowa.",
+        "reference": "Wszystko bierze dosłownie."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "dosłownie",
+        "hyp_span": "słowa",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20686554",
+    "max_primary_wer": 0.5,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.3333333333333333,
+        "sdi": "2/0/0",
+        "hypothesis": "Nie uciekną — pocieszał siebie samego jednak",
+        "reference": "Nie ucieknie! — pocieszał siebie samego jednoręki."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.5,
+        "sdi": "2/0/1",
+        "hypothesis": "Nie ucieknę, pocieszał w siebie samego jednoletnie.",
+        "reference": "Nie ucieknie! — pocieszał siebie samego jednoręki."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "ucieknie",
+        "hyp_span": "uciekną",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      },
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "jednoręki",
+        "hyp_span": "jednak",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "ucieknie",
+        "hyp_span": "ucieknę",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "jednoręki",
+        "hyp_span": "jednoletnie",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20653502",
+    "max_primary_wer": 0.5,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Pochylone są ku ziemi te kształty.",
+        "reference": "Pochylone są ku ziemi te kształty."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.5,
+        "sdi": "2/1/0",
+        "hypothesis": "Pochylione są kóziemi te kształty.",
+        "reference": "Pochylone są ku ziemi te kształty."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "pochylone",
+        "hyp_span": "pochylione",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "ku",
+        "hyp_span": "kóziemi",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "delete",
+        "ref_span": "ziemi",
+        "hyp_span": "",
+        "primary_category": "deletion",
+        "rationale": "Reference token deleted."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20603985",
+    "max_primary_wer": 0.25,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "No to idźże jeszcze raz i dobrze poszukaj",
+        "reference": "— No, to idźże jeszcze raz i dobrze poszukaj!"
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.25,
+        "sdi": "1/0/1",
+        "hypothesis": "No, to idź że jeszcze raz i dobrze poszukaj.",
+        "reference": "— No, to idźże jeszcze raz i dobrze poszukaj!"
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "idźże",
+        "hyp_span": "że",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20647765",
+    "max_primary_wer": 0.14285714285714285,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.14285714285714285,
+        "sdi": "1/0/0",
+        "hypothesis": "Szła stamtąd na nas tęchlizna i zaduch.",
+        "reference": "Szła stamtąd na nas stęchlizna i zaduch."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.14285714285714285,
+        "sdi": "1/0/0",
+        "hypothesis": "Szła stamtąd na nas tęchlizna i zaduch.",
+        "reference": "Szła stamtąd na nas stęchlizna i zaduch."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "stęchlizna",
+        "hyp_span": "tęchlizna",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "stęchlizna",
+        "hyp_span": "tęchlizna",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20619232",
+    "max_primary_wer": 0.125,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Zamiast odpowiedzi Andrzej przybliżył mi do oczu kukłę.",
+        "reference": "Zamiast odpowiedzi Andrzej przybliżył mi do oczu kukłę."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.125,
+        "sdi": "1/0/0",
+        "hypothesis": "Zamiast odpowiedzi Andrzej przybliżył mi do oczu kukły.",
+        "reference": "Zamiast odpowiedzi Andrzej przybliżył mi do oczu kukłę."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "kukłę",
+        "hyp_span": "kukły",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      }
+    ]
+  }
+]

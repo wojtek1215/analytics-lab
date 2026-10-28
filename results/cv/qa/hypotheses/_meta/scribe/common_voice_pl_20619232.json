@@ -1,0 +1,18 @@
+{
+  "clip_id": "common_voice_pl_20619232",
+  "split": "qa",
+  "status": "ok",
+  "model_id": "scribe_v2",
+  "language_code": "pl",
+  "endpoint": "https://api.elevenlabs.io/v1/speech-to-text",
+  "tag_audio_events": false,
+  "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_20619232.mp3",
+  "audio_relative": "clips/common_voice_pl_20619232.mp3",
+  "duration_ms_manifest": 5256,
+  "latency_s": 0.921,
+  "hypothesis_path": "results/cv/qa/hypotheses/scribe/common_voice_pl_20619232.txt",
+  "hypothesis_chars": 55,
+  "request_id": "7W2c77FfMHWDTsxavRTv",
+  "timestamp_utc": "2026-10-27T21:22:10.872854+00:00",
+  "api_used": true
+}

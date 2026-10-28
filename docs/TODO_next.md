@@ -21,13 +21,17 @@ Status: `polish_asr_eval_v2` / `pl_wer_normalized_v1` is **FROZEN** primary for 
 
 ## P2 — Common Voice pilot (next)
 
-- [ ] Owner manually downloads Common Voice Scripted Speech 27.0 Polish from Mozilla Data Collective (accept terms; no rehost).
-- [ ] Deterministic manifest with `seed=20261026`: **10 QA → 20–40 pilot** (frozen holdout 200 — do not peek while tuning).
-- [ ] Run **local Whisper first** on the small pilot; score with frozen `pl_wer_normalized_v1` (+ report `pl_basic_v1` / `pl_numbers_v1` sensitivity + `taxonomy_v2`).
-- [ ] ElevenLabs Scribe only with explicit budget approval + `--dry-run` beforehand.
-- [ ] Identical audio and frozen protocol for both models; corpus WER = sum(edits)/sum(N); paired per-clip differences.
+- [x] Owner manually downloads Common Voice Scripted Speech 27.0 Polish (`data/raw/cv-corpus-27.0-2026-09-11/pl/`; accept terms; no rehost).
+- [x] Deterministic manifest `cv_test_speaker_disjoint_v1`, `seed=20261026`: **10 QA → 40 pilot → 200 holdout** (speaker-disjoint; see `docs/sampling_protocol.md`, `data/manifests/`).
+- [x] Results tree `results/cv/{qa,pilot,holdout}/` with `hypotheses|metrics|errors|reports` (see `docs/results_layout.md`).
+- [x] Run **local Whisper** on **qa (10)** → `results/cv/qa/hypotheses/whisper/` (`scripts/run_whisper_batch.py`; api_used=false).
+- [x] Score qa + **error taxonomy** → `results/cv/qa/metrics|errors|reports/` (`scripts/evaluate_cohort.py`).
+- [ ] After qa looks sane, Whisper on **pilot (40)**; draft `errors/hard_cases.md` (where models fail most); still no holdout peeking for methodology changes.
+- [x] Scribe batch CLI ready (`scripts/run_scribe_batch.py`; dry-run default; `--execute --i-accept-paid-api` gated) for same qa manifest.
+- [x] ElevenLabs Scribe **live** qa(10) → `results/cv/qa/hypotheses/scribe/` (10/10 ok).
+- [ ] Identical audio and frozen protocol for both models; corpus WER = sum(edits)/sum(N); paired per-clip differences **plus** taxonomy mass comparison.
 - [ ] For larger N, use appropriate paired uncertainty estimation (not applicable to N=1 smoke).
-- [ ] Product framing: *when* Scribe is better/worse than Whisper for Polish (content vs format), not a single ranking.
+- [ ] Product framing: *when* Scribe is better/worse than Whisper for Polish (**which error types**, content vs format), not a single ranking.
 
 ## P3 — Optional future experiment (not primary accuracy)
 

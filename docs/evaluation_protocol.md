@@ -299,4 +299,4 @@ Public references informing this protocol (no claim of identity or endorsement):
 
 ## Next work (TODO)
 
-See `docs/TODO_next.md`: normalizer frozen; next is Common Voice 40-clip pilot (Whisper first; no unpaid API batches without approval).
+See `docs/TODO_next.md` and `docs/sampling_protocol.md`: normalizer frozen; CV manifests (`cv_test_speaker_disjoint_v1`) generated. Next is Whisper on the **qa (10)** clips, then pilot 40 — no paid API batches without approval.

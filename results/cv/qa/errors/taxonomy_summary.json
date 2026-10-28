@@ -1,0 +1,29 @@
+{
+  "scribe_v2": {
+    "taxonomy_version": "taxonomy_v2",
+    "n_edits": 3,
+    "total_edit_mass": 3,
+    "by_primary_category": {
+      "morphology": 2,
+      "lexical_substitution": 1
+    },
+    "by_semantic_impact": {
+      "content_difference": 3
+    }
+  },
+  "whisper-large-v3-turbo": {
+    "taxonomy_version": "taxonomy_v2",
+    "n_edits": 12,
+    "total_edit_mass": 12,
+    "by_primary_category": {
+      "insertion": 3,
+      "lexical_substitution": 4,
+      "morphology": 4,
+      "deletion": 1
+    },
+    "by_semantic_impact": {
+      "undetermined": 3,
+      "content_difference": 9
+    }
+  }
+}
