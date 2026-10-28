@@ -1,0 +1,21 @@
+{
+  "clip_id": "common_voice_pl_25378583",
+  "variant": "no_condition",
+  "status": "ok",
+  "model_id": "whisper-large-v3-turbo",
+  "model_repo": "mlx-community/whisper-large-v3-turbo",
+  "language": "pl",
+  "decode_kwargs": {
+    "condition_on_previous_text": false
+  },
+  "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_25378583.mp3",
+  "duration_ms_manifest": 3276,
+  "latency_s": 1.087,
+  "hypothesis_path": "results/cv/pilot/audit/no_condition/hypotheses/common_voice_pl_25378583.txt",
+  "hypothesis_text": "Jecha od tego logicznego ze şu",
+  "hypothesis_chars": 30,
+  "reference_sentence": "Chciałbym kiedyś zostać pilotem.",
+  "timestamp_utc": "2026-10-28T13:40:05.374300+00:00",
+  "api_used": false,
+  "audit_only": true
+}

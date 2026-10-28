@@ -1,0 +1,232 @@
+[
+  {
+    "clip_id": "common_voice_pl_25378583",
+    "max_primary_wer": 1.0,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.75,
+        "sdi": "2/0/1",
+        "hypothesis": "Chciałbym kiedyś zatańczyć z Piotrem.",
+        "reference": "Chciałbym kiedyś zostać pilotem."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 1.0,
+        "sdi": "4/0/0",
+        "hypothesis": "Cześć! Cześć! Cześć! Cześć!",
+        "reference": "Chciałbym kiedyś zostać pilotem."
+      }
+    },
+    "content_edits": []
+  },
+  {
+    "clip_id": "common_voice_pl_32077476",
+    "max_primary_wer": 0.9,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.9,
+        "sdi": "9/0/0",
+        "hypothesis": "Żalycha nowi widno stronę dyskutuje imieniem puścił, brak wcześniejszym umową",
+        "reference": "Rząd w Hanoi jednostronnie dysponuje mieniem kościoła wbrew wcześniejszym umowom"
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.6,
+        "sdi": "6/0/0",
+        "hypothesis": "Urząd w kanali jednostronny, wspomnienia imieniem Kościoława wbrew wcześniejszym umowom.",
+        "reference": "Rząd w Hanoi jednostronnie dysponuje mieniem kościoła wbrew wcześniejszym umowom"
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "umowom",
+        "hyp_span": "umową",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "rząd",
+        "hyp_span": "urząd",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20829546",
+    "max_primary_wer": 0.6,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Jest godzina dwudziesta trzecia trzydzieści.",
+        "reference": "Jest godzina dwudziesta trzecia trzydzieści."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.6,
+        "sdi": "1/2/0",
+        "hypothesis": "Jest godzina 23.30",
+        "reference": "Jest godzina dwudziesta trzecia trzydzieści."
+      }
+    },
+    "content_edits": []
+  },
+  {
+    "clip_id": "common_voice_pl_20618909",
+    "max_primary_wer": 0.3333333333333333,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Kiedy? W niedzielę.",
+        "reference": "„Kiedy?” „W niedzielę”."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.3333333333333333,
+        "sdi": "0/1/0",
+        "hypothesis": "Kiedy? Niedzielę.",
+        "reference": "„Kiedy?” „W niedzielę”."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "delete",
+        "ref_span": "w",
+        "hyp_span": "",
+        "primary_category": "deletion",
+        "rationale": "Reference token deleted."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20604060",
+    "max_primary_wer": 0.3333333333333333,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Lekarz zasępił się.",
+        "reference": "Lekarz zasępił się!"
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.3333333333333333,
+        "sdi": "1/0/0",
+        "hypothesis": "Lekarz zastępił się.",
+        "reference": "Lekarz zasępił się!"
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "zasępił",
+        "hyp_span": "zastępił",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_21877469",
+    "max_primary_wer": 0.2,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.2,
+        "sdi": "1/0/0",
+        "hypothesis": "Wspomniałem o tym twojemu ojcu.",
+        "reference": "Wspomniałem o tem twojemu ojcu."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.2,
+        "sdi": "1/0/0",
+        "hypothesis": "Wspomniałem o tym Twojemu ojcu.",
+        "reference": "Wspomniałem o tem twojemu ojcu."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "tem",
+        "hyp_span": "tym",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "tem",
+        "hyp_span": "tym",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20772455",
+    "max_primary_wer": 0.2,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.2,
+        "sdi": "1/0/0",
+        "hypothesis": "Co ty robisz, licho zatercone?",
+        "reference": "Co ty robisz, licho zatracone?"
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.0,
+        "sdi": "0/0/0",
+        "hypothesis": "Co ty robisz, licho, zatracone?",
+        "reference": "Co ty robisz, licho zatracone?"
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "zatracone",
+        "hyp_span": "zatercone",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      }
+    ]
+  },
+  {
+    "clip_id": "common_voice_pl_20775547",
+    "max_primary_wer": 0.18181818181818182,
+    "models": {
+      "scribe_v2": {
+        "wer": 0.09090909090909091,
+        "sdi": "1/0/0",
+        "hypothesis": "Dałam się pomacać trochę fotografowi z naprzeciwka i zdjęcia już są.",
+        "reference": "Dałam się pomacać trochę fotografowi z przeciwka i zdjęcia już są."
+      },
+      "whisper-large-v3-turbo": {
+        "wer": 0.18181818181818182,
+        "sdi": "1/0/1",
+        "hypothesis": "Udało mi się pomacać trochę fotografowi z przeciwka i zdjęcia już są.",
+        "reference": "Dałam się pomacać trochę fotografowi z przeciwka i zdjęcia już są."
+      }
+    },
+    "content_edits": [
+      {
+        "model_id": "scribe_v2",
+        "op": "substitute",
+        "ref_span": "przeciwka",
+        "hyp_span": "naprzeciwka",
+        "primary_category": "morphology",
+        "rationale": "High character overlap substitution; treated as morphology (auto heuristic)."
+      },
+      {
+        "model_id": "whisper-large-v3-turbo",
+        "op": "substitute",
+        "ref_span": "dałam",
+        "hyp_span": "mi",
+        "primary_category": "lexical_substitution",
+        "rationale": "Single-token lexical substitution."
+      }
+    ]
+  }
+]

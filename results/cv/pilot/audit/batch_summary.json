@@ -1,0 +1,212 @@
+{
+  "purpose": "audit_only_hard_case_rerun",
+  "does_not_overwrite_pilot_hypotheses": true,
+  "manifest": "data/manifests/cv27_pl_pilot_hard_case_audit_2.csv",
+  "corpus_dir": "data/raw/cv-corpus-27.0-2026-09-11/pl",
+  "audit_root": "results/cv/pilot/audit",
+  "updated_utc": "2026-10-28T13:46:15.140231+00:00",
+  "whisper": {
+    "batch_started_utc": "2026-10-28T13:40:01.757926+00:00",
+    "batch_finished_utc": "2026-10-28T13:40:05.374525+00:00",
+    "model_id": "whisper-large-v3-turbo",
+    "model_repo": "mlx-community/whisper-large-v3-turbo",
+    "language": "pl",
+    "api_used": false,
+    "variants": [
+      {
+        "variant": "baseline",
+        "decode_kwargs": {},
+        "hypothesis_dir": "results/cv/pilot/audit/baseline/hypotheses",
+        "meta_dir": "results/cv/pilot/audit/baseline/meta",
+        "n_ok": 2,
+        "n_error": 0,
+        "clips": [
+          {
+            "clip_id": "common_voice_pl_25378583",
+            "variant": "baseline",
+            "status": "ok",
+            "model_id": "whisper-large-v3-turbo",
+            "model_repo": "mlx-community/whisper-large-v3-turbo",
+            "language": "pl",
+            "decode_kwargs": {},
+            "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_25378583.mp3",
+            "duration_ms_manifest": 3276,
+            "latency_s": 2.095,
+            "hypothesis_path": "results/cv/pilot/audit/baseline/hypotheses/common_voice_pl_25378583.txt",
+            "hypothesis_text": "Jecha od tego logicznego ze şu",
+            "hypothesis_chars": 30,
+            "reference_sentence": "Chciałbym kiedyś zostać pilotem.",
+            "timestamp_utc": "2026-10-28T13:40:03.853514+00:00",
+            "api_used": false,
+            "audit_only": true
+          },
+          {
+            "clip_id": "common_voice_pl_32077476",
+            "variant": "baseline",
+            "status": "ok",
+            "model_id": "whisper-large-v3-turbo",
+            "model_repo": "mlx-community/whisper-large-v3-turbo",
+            "language": "pl",
+            "decode_kwargs": {},
+            "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_32077476.mp3",
+            "duration_ms_manifest": 6336,
+            "latency_s": 0.24,
+            "hypothesis_path": "results/cv/pilot/audit/baseline/hypotheses/common_voice_pl_32077476.txt",
+            "hypothesis_text": "Urząd w kanali jednostronny, wspomnienia imieniem Kościoława wbrew wcześniejszym umowom.",
+            "hypothesis_chars": 88,
+            "reference_sentence": "Rząd w Hanoi jednostronnie dysponuje mieniem kościoła wbrew wcześniejszym umowom",
+            "timestamp_utc": "2026-10-28T13:40:04.093812+00:00",
+            "api_used": false,
+            "audit_only": true
+          }
+        ]
+      },
+      {
+        "variant": "temp0",
+        "decode_kwargs": {
+          "temperature": 0.0
+        },
+        "hypothesis_dir": "results/cv/pilot/audit/temp0/hypotheses",
+        "meta_dir": "results/cv/pilot/audit/temp0/meta",
+        "n_ok": 1,
+        "n_error": 0,
+        "clips": [
+          {
+            "clip_id": "common_voice_pl_25378583",
+            "variant": "temp0",
+            "status": "ok",
+            "model_id": "whisper-large-v3-turbo",
+            "model_repo": "mlx-community/whisper-large-v3-turbo",
+            "language": "pl",
+            "decode_kwargs": {
+              "temperature": 0.0
+            },
+            "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_25378583.mp3",
+            "duration_ms_manifest": 3276,
+            "latency_s": 0.192,
+            "hypothesis_path": "results/cv/pilot/audit/temp0/hypotheses/common_voice_pl_25378583.txt",
+            "hypothesis_text": "Kaj algum kele za te piłotami?",
+            "hypothesis_chars": 30,
+            "reference_sentence": "Chciałbym kiedyś zostać pilotem.",
+            "timestamp_utc": "2026-10-28T13:40:04.286796+00:00",
+            "api_used": false,
+            "audit_only": true
+          }
+        ]
+      },
+      {
+        "variant": "no_condition",
+        "decode_kwargs": {
+          "condition_on_previous_text": false
+        },
+        "hypothesis_dir": "results/cv/pilot/audit/no_condition/hypotheses",
+        "meta_dir": "results/cv/pilot/audit/no_condition/meta",
+        "n_ok": 1,
+        "n_error": 0,
+        "clips": [
+          {
+            "clip_id": "common_voice_pl_25378583",
+            "variant": "no_condition",
+            "status": "ok",
+            "model_id": "whisper-large-v3-turbo",
+            "model_repo": "mlx-community/whisper-large-v3-turbo",
+            "language": "pl",
+            "decode_kwargs": {
+              "condition_on_previous_text": false
+            },
+            "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_25378583.mp3",
+            "duration_ms_manifest": 3276,
+            "latency_s": 1.087,
+            "hypothesis_path": "results/cv/pilot/audit/no_condition/hypotheses/common_voice_pl_25378583.txt",
+            "hypothesis_text": "Jecha od tego logicznego ze şu",
+            "hypothesis_chars": 30,
+            "reference_sentence": "Chciałbym kiedyś zostać pilotem.",
+            "timestamp_utc": "2026-10-28T13:40:05.374300+00:00",
+            "api_used": false,
+            "audit_only": true
+          }
+        ]
+      }
+    ]
+  },
+  "scribe": {
+    "batch_started_utc": "2026-10-28T13:46:12.907575+00:00",
+    "batch_finished_utc": "2026-10-28T13:46:15.139791+00:00",
+    "model_id": "scribe_v2",
+    "language_code": "pl",
+    "endpoint": "https://api.elevenlabs.io/v1/speech-to-text",
+    "corpus_dir": "data/raw/cv-corpus-27.0-2026-09-11/pl",
+    "hypothesis_dir": "results/cv/pilot/audit/scribe/hypotheses",
+    "meta_dir": "results/cv/pilot/audit/scribe/meta",
+    "dry_run": false,
+    "confirm_paid": true,
+    "skip_existing": false,
+    "max_audio_seconds": 60.0,
+    "api_key_configured": true,
+    "budget_estimate": {
+      "n_clips": 2,
+      "n_with_duration": 2,
+      "total_duration_ms": 9612,
+      "total_duration_s": 9.612,
+      "total_duration_min": 0.1602,
+      "estimate_usd_list_price": 0.0006,
+      "estimate_credits_approx": 52.9,
+      "pricing_note": "Rough public-list estimate only: $0.22/audio-hour API and/or ~330 credits/min in-app STT. Actual plan, promotions, and metering may differ; check your account.",
+      "source_urls": [
+        "https://elevenlabs.io/pricing/api",
+        "https://elevenlabs.io/pricing"
+      ]
+    },
+    "n_requested": 2,
+    "n_ok": 2,
+    "n_skipped_existing": 0,
+    "n_dry_run": 0,
+    "n_missing_audio": 0,
+    "n_error": 0,
+    "api_used": true,
+    "clips": [
+      {
+        "clip_id": "common_voice_pl_25378583",
+        "split": "pilot",
+        "status": "ok",
+        "model_id": "scribe_v2",
+        "language_code": "pl",
+        "endpoint": "https://api.elevenlabs.io/v1/speech-to-text",
+        "tag_audio_events": false,
+        "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_25378583.mp3",
+        "audio_relative": "clips/common_voice_pl_25378583.mp3",
+        "duration_ms_manifest": 3276,
+        "latency_s": 0.872,
+        "hypothesis_path": "results/cv/pilot/audit/scribe/hypotheses/common_voice_pl_25378583.txt",
+        "hypothesis_chars": 31,
+        "request_id": "St6wKDLwp5YkgyCxmRO7",
+        "timestamp_utc": "2026-10-28T13:46:13.780972+00:00",
+        "api_used": true,
+        "hypothesis_text": "Chciałbym kiedyś zostać pilotem"
+      },
+      {
+        "clip_id": "common_voice_pl_32077476",
+        "split": "pilot",
+        "status": "ok",
+        "model_id": "scribe_v2",
+        "language_code": "pl",
+        "endpoint": "https://api.elevenlabs.io/v1/speech-to-text",
+        "tag_audio_events": false,
+        "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_32077476.mp3",
+        "audio_relative": "clips/common_voice_pl_32077476.mp3",
+        "duration_ms_manifest": 6336,
+        "latency_s": 1.358,
+        "hypothesis_path": "results/cv/pilot/audit/scribe/hypotheses/common_voice_pl_32077476.txt",
+        "hypothesis_chars": 76,
+        "request_id": "Z9nrooVwzAvXXgEtZyI5",
+        "timestamp_utc": "2026-10-28T13:46:15.139690+00:00",
+        "api_used": true,
+        "hypothesis_text": "Żalcha nowi widno stronę dysponuje imieniem puścił, brak wcześniejszym umową"
+      }
+    ],
+    "purpose": "audit_only_hard_case_rerun",
+    "system": "scribe",
+    "does_not_overwrite_pilot_hypotheses": true,
+    "audit_only": true
+  }
+}

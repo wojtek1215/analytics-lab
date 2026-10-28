@@ -1,0 +1,19 @@
+{
+  "clip_id": "common_voice_pl_32077476",
+  "variant": "baseline",
+  "status": "ok",
+  "model_id": "whisper-large-v3-turbo",
+  "model_repo": "mlx-community/whisper-large-v3-turbo",
+  "language": "pl",
+  "decode_kwargs": {},
+  "audio_path": "data/raw/cv-corpus-27.0-2026-09-11/pl/clips/common_voice_pl_32077476.mp3",
+  "duration_ms_manifest": 6336,
+  "latency_s": 0.24,
+  "hypothesis_path": "results/cv/pilot/audit/baseline/hypotheses/common_voice_pl_32077476.txt",
+  "hypothesis_text": "Urząd w kanali jednostronny, wspomnienia imieniem Kościoława wbrew wcześniejszym umowom.",
+  "hypothesis_chars": 88,
+  "reference_sentence": "Rząd w Hanoi jednostronnie dysponuje mieniem kościoła wbrew wcześniejszym umowom",
+  "timestamp_utc": "2026-10-28T13:40:04.093812+00:00",
+  "api_used": false,
+  "audit_only": true
+}

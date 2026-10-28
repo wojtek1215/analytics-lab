@@ -297,6 +297,112 @@ Public references informing this protocol (no claim of identity or endorsement):
 - Some acoustic ambiguities require human review.
 - No confidence intervals from one clip.
 
+## Glossary (short)
+
+| Term | Meaning in this project |
+|---|---|
+| **ASR** | Automatic Speech Recognition — speech-to-text (here: ElevenLabs Scribe v2 and local Whisper). |
+| **Primary** | The **headline** score used for the main model comparison: corpus WER after `pl_wer_normalized_v1` on the agreed clip set. Taxonomy, hard-case writeups, and sensitivity tables are **not** primary. |
+| **Transient miss** | A hypothesis that was **wrong on the frozen run**, but a later **audit-only re-call** on the same audio recovered (or nearly recovered) the reference. Example: pilot Scribe on `common_voice_pl_25378583` said *zatańczyć z Piotrem*; audit Scribe matched the reference. This is **API/decode non-determinism**, not proof the pilot file was mis-scored — primary stays on frozen hypotheses. |
+
+## Common Voice clip exclusion (data quality only)
+
+**Status:** locked for holdout methodology (2026-10-28).  
+**Scratchpad history:** `docs/notes_thoughts.md` (not normative). This section is normative.
+
+Exclusions remove a **clip** (same audio + same reference) from **primary aggregation for every system**. They are about **broken evaluation data**, not about model quality.
+
+### Allowed exclusion reasons
+
+| Reason id | Meaning | How decided |
+|---|---|---|
+| `ref_ne_audio` | Spoken content does **not** match the Common Voice `sentence` (wrong label / wrong prompt on disk). | Human listen: audio vs manifest sentence. |
+| `silence_or_no_speech` | File is effectively silent or has no intelligible speech while the reference is a full sentence. | Human listen; optional energy/no-speech helpers. **Not** inferred from model WER. |
+| `corrupt_unreadable` | Audio cannot be decoded / is empty / truncated so ASR cannot fairly run. | I/O or decoder failure before scoring. |
+
+### Explicit non-reasons (must stay in primary)
+
+- High WER or “outlier”
+- Hallucinations, repetition loops, mixed-script garbage
+- Hard names / lexicon (e.g. Hanoi, church vocabulary)
+- Empty **hypothesis** while audio is audible speech (that is a **model failure**: scored as deletions)
+- Disagreement between Scribe and Whisper
+
+Pilot hard cases `common_voice_pl_25378583` and `common_voice_pl_32077476` were owner-checked: audio matches reference → **not** excluded.
+
+### Exclusion log (required if any clip is dropped)
+
+Record under the cohort (e.g. `results/cv/holdout/errors/exclusions.md` or JSON): `clip_id`, reason id, who listened / tool evidence, timestamp. Publish the count of excluded clips next to primary WER. Do not silently drop rows.
+
+## Reporting layers (holdout / pilot)
+
+| Layer | Report name | What | Changes primary WER? |
+|---|---|---|---|
+| **Primary** | Primary corpus WER | Corpus WER (+ CER) after `pl_wer_normalized_v1`; paired comparison on the same `clip_id` set; uncertainty (e.g. bootstrap / paired CI) when N is large enough | — (this **is** primary) |
+| **Hard-case narrative** | Hard cases | Curated examples (`errors/hard_cases.md`), including pathological outputs and documented transient misses | No |
+| **Sensitivity** | Pathology-excluded WER | Same corpus WER after dropping clips whose hypothesis is auto-flagged by `pathological_hyp_v1` **for that model** | No — labeled sensitivity only |
+| **Derived view** | Pathology impact | How much the headline is influenced by catastrophic / non-linguistic collapses (see below) | No |
+
+Frozen hypothesis files under `results/cv/.../hypotheses/` remain the scoring source of truth. Audit re-runs write only under `results/cv/.../audit/` and do not rewrite primary.
+
+### Pathology impact (scorecard-ready finding)
+
+**Intent:** show **how much of the headline result is driven by catastrophic model outputs** (repetition loops, mixed-script garbage, extreme length collapse), **without silently deleting those clips from the primary score**.
+
+| Name (use in reports) | Definition |
+|---|---|
+| **Primary corpus WER** | Headline metric; all eligible clips. |
+| **Pathology-excluded WER** | Sensitivity: primary definition on clips **not** flagged for that model. |
+| **Pathology impact** | Interpretive gap between the two (e.g. primary − pathology-excluded, in percentage points), plus `n_flagged` / `n_scored`. |
+
+**Finding language (preferred):**  
+*Pathology impact estimates how much catastrophic ASR collapse inflates the headline WER, while keeping those clips in the primary score for transparency.*
+
+Future product/decision memos may surface this as a small **scorecard row** (working title: **Pathology impact**). Do not rename primary WER to the pathology-excluded figure.
+
+## Pathological hypothesis auto-flag (`pathological_hyp_v1`)
+
+**Purpose:** transparent report flag + optional sensitivity table.  
+**Does not exclude** the clip from primary.
+
+Apply to each saved hypothesis string (per model, per clip) **before** looking at holdout ranking for methodology changes.
+
+### Flag if **any** rule matches
+
+1. **Repetition loop**  
+   After Unicode NFC + casefold + whitespace tokenize:  
+   - some token appears **≥ 4 times consecutively**, or  
+   - for hypotheses with ≥ 4 tokens, the most frequent token covers **≥ 50%** of tokens.
+
+2. **Unexpected script / non-Polish letter junk**  
+   Hypothesis contains at least one letter whose Unicode script is outside `{Latin, Common, Inherited}`, **or** a Latin letter with a combining mark / precomposed diacritic **outside** the Polish set  
+   `{ąćęłńóśźżĄĆĘŁŃÓŚŹŻ}` plus plain A–Z / a–z.  
+   (Catches examples like `şu`, Hangul, Cyrillic fragments in “Polish” ASR output.)
+
+3. **Extreme length mismatch** (guardrail, not a WER substitute)  
+   Let `R` = reference character length and `H` = hypothesis character length after strip:  
+   - `R ≥ 12` and (`H > 3R` or `H < 0.15R`).
+
+### Sensitivity / pathology impact use
+
+- Report `n_flagged` per model.
+- Report **Primary corpus WER** vs **Pathology-excluded WER** side by side.
+- Report **Pathology impact** as the interpretive gap (and flagged count), not as a replacement headline.
+- Never replace the primary headline with the pathology-excluded number unless the report explicitly labels it as sensitivity.
+
+### Versioning
+
+Rule changes require a new id (`pathological_hyp_v2`, …). Do not retune thresholds against holdout errors to flatter a preferred system.
+
+## Pre-holdout audio QC (automated + selective listen)
+
+Before the N=200 paid/local pass:
+
+1. **Automated preflight** on the holdout manifest (and optionally pilot): missing path, size 0, unreadable decode, non-positive / missing `duration_ms`, extremely short duration (e.g. `< 200 ms`). Fail or quarantine those as `corrupt_unreadable` / investigate — not as high-WER exclusions.
+2. **Do not** require listening to all 200 clips for `ref_ne_audio` before scoring.
+3. **Selective listen** only for: automated suspects; and (after ASR, before decision memo) clips where a human suspects wrong CV labels (not merely wrong ASR).
+4. Pilot hard cases already cleared for `ref_ne_audio` need not be re-listened for exclusion.
+
 ## Next work (TODO)
 
-See `docs/TODO_next.md` and `docs/sampling_protocol.md`: normalizer frozen; CV manifests (`cv_test_speaker_disjoint_v1`) generated. Next is Whisper on the **qa (10)** clips, then pilot 40 — no paid API batches without approval.
+See `docs/TODO_next.md` and `docs/sampling_protocol.md`. Methodology lock items above apply before holdout 200. Implement `pathological_hyp_v1` in code when generating holdout/pilot reports; keep primary WER unchanged by flags.
